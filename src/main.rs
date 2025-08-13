@@ -45,6 +45,8 @@ async fn main() {
     println!("Built JSON schema for structured output:");
     println!("{}", serde_json::to_string_pretty(&json_schema).unwrap());
 
+    println!("\nDebug: Full request will be sent to OpenRouter...");
+
     let pdf_base64 = pdf_to_base64(pdf_path);
     println!(
         "PDF encoded to base64 data URL ({} chars)",
@@ -133,7 +135,7 @@ async fn call_openrouter(
     );
 
     let request_body = json!({
-        "model": "openai/gpt-4o",
+        "model": "google/gemini-2.5-flash",
         "messages": [
             {
                 "role": "user",
@@ -146,7 +148,7 @@ async fn call_openrouter(
                         "type": "file",
                         "file": {
                             "filename": "document.pdf",
-                            "file_data": pdf_base64
+                            "file_data": pdf_base64,
                         }
                     }
                 ]
@@ -159,8 +161,7 @@ async fn call_openrouter(
                 "strict": true,
                 "schema": json_schema
             }
-        },
-        "plugins": ["pdf-text"]
+        }
     });
 
     let response = client
