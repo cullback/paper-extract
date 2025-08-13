@@ -83,6 +83,8 @@ fn pdf_to_base64(path: &str) -> String {
     format!("data:application/pdf;base64,{base64_data}")
 }
 
+const PROMPT_TEMPLATE: &str = include_str!("prompt.md");
+
 fn build_json_schema(fields: &[SchemaField]) -> Value {
     let mut properties = serde_json::Map::new();
     let mut required = Vec::new();
@@ -93,14 +95,40 @@ fn build_json_schema(fields: &[SchemaField]) -> Value {
             _ => "string",
         };
 
-        properties.insert(
-            field.field_name.clone(),
-            json!({
-                "type": field_type,
-                "description": field.description
-            }),
-        );
+        let field_schema = json!({
+            "type": "object",
+            "properties": {
+                "value": {
+                    "type": [field_type, "null"],
+                    "description": field.description
+                },
+                "match_type": {
+                    "type": "string",
+                    "enum": ["found", "not_found", "inferred"]
+                },
+                "comment": {
+                    "type": "string"
+                },
+                "page": {
+                    "type": "integer"
+                },
+                "xmin": {
+                    "type": "number"
+                },
+                "ymin": {
+                    "type": "number"
+                },
+                "xmax": {
+                    "type": "number"
+                },
+                "ymax": {
+                    "type": "number"
+                }
+            },
+            "required": ["value", "match_type", "comment", "page", "xmin", "ymin", "xmax", "ymax"]
+        });
 
+        properties.insert(field.field_name.clone(), field_schema);
         required.push(field.field_name.clone());
     }
 
@@ -121,21 +149,20 @@ async fn call_openrouter(
 
     let json_schema = build_json_schema(fields);
 
-    let mut prompt =
-        String::from("Extract the following fields from this document:\n\n");
+    let mut fields_list = String::new();
     for field in fields {
-        prompt.push_str("- ");
-        prompt.push_str(&field.field_name);
-        prompt.push_str(": ");
-        prompt.push_str(&field.description);
+        fields_list.push_str(&format!(
+            "- **{}**: {}\n",
+            field.field_name, field.description
+        ));
         if field.infer {
-            prompt.push_str(" (infer if not explicitly stated)");
+            fields_list.push_str(
+                "  (This field should be inferred if not explicitly found)\n",
+            );
         }
-        prompt.push('\n');
     }
-    prompt.push_str(
-        "\nReturn the data in the exact JSON format specified by the schema.",
-    );
+
+    let prompt = PROMPT_TEMPLATE.replace("{{FIELDS_LIST}}", &fields_list);
 
     let request_body = json!({
         "model": "google/gemini-2.5-flash",
@@ -184,10 +211,17 @@ fn write_csv(output_path: &str, response: &Value, fields: &[SchemaField]) {
     let file = File::create(output_path).expect("Failed to create output file");
     let mut writer = Writer::from_writer(file);
 
-    let mut headers = Vec::new();
-    for field in fields {
-        headers.push(field.field_name.clone());
-    }
+    let headers = vec![
+        "field_name",
+        "value",
+        "match_type",
+        "comment",
+        "page",
+        "xmin",
+        "ymin",
+        "xmax",
+        "ymax",
+    ];
     writer
         .write_record(&headers)
         .expect("Failed to write headers");
@@ -200,19 +234,42 @@ fn write_csv(output_path: &str, response: &Value, fields: &[SchemaField]) {
         content.clone()
     };
 
-    let mut row = Vec::new();
     for field in fields {
-        let value = &extracted_data[&field.field_name];
-        let cell_value = match value {
-            Value::String(s) => s.clone(),
-            Value::Number(n) => n.to_string(),
-            Value::Bool(b) => b.to_string(),
-            Value::Null => String::new(),
-            _ => serde_json::to_string(value).unwrap_or_default(),
+        let field_data = &extracted_data[&field.field_name];
+
+        let value = if let Some(s) = field_data["value"].as_str() {
+            s.to_string()
+        } else if let Some(n) = field_data["value"].as_f64() {
+            n.to_string()
+        } else if let Some(b) = field_data["value"].as_bool() {
+            b.to_string()
+        } else {
+            String::new()
         };
-        row.push(cell_value);
+
+        let match_type =
+            field_data["match_type"].as_str().unwrap_or("not_found");
+        let comment = field_data["comment"].as_str().unwrap_or("");
+        let page = field_data["page"].as_i64().unwrap_or(0).to_string();
+        let xmin = field_data["xmin"].as_f64().unwrap_or(0.0).to_string();
+        let ymin = field_data["ymin"].as_f64().unwrap_or(0.0).to_string();
+        let xmax = field_data["xmax"].as_f64().unwrap_or(0.0).to_string();
+        let ymax = field_data["ymax"].as_f64().unwrap_or(0.0).to_string();
+
+        let row = vec![
+            field.field_name.clone(),
+            value,
+            match_type.to_string(),
+            comment.to_string(),
+            page,
+            xmin,
+            ymin,
+            xmax,
+            ymax,
+        ];
+
+        writer.write_record(&row).expect("Failed to write data row");
     }
-    writer.write_record(&row).expect("Failed to write data row");
 
     writer.flush().expect("Failed to flush CSV writer");
 }
