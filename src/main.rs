@@ -32,19 +32,22 @@ async fn main() {
     let schema = read_schema(schema_path);
     println!("Loaded {} fields from schema", schema.len());
     for field in &schema {
-        println!("  - {}: {} ({})", field.field_name, field.description, field.kind);
+        println!(
+            "  - {}: {} ({}) [infer: {}]",
+            field.field_name, field.description, field.kind, field.infer
+        );
     }
 }
 
 fn read_schema(path: &str) -> Vec<SchemaField> {
     let file = File::open(path).expect("Failed to open schema file");
     let mut reader = Reader::from_reader(file);
-    
+
     let mut fields = Vec::new();
     for result in reader.deserialize() {
         let field: SchemaField = result.expect("Failed to parse schema row");
         fields.push(field);
     }
-    
+
     fields
 }
