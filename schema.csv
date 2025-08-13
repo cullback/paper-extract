@@ -1,0 +1,6 @@
+field_name,description,kind,infer
+invoice_number,Invoice or document number,text,false
+date,Document date,text,true
+total,Total amount,number,false
+vendor,Company name,text,false
+category,Type of expense,category,true

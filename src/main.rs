@@ -1,13 +1,14 @@
+use csv::Reader;
 use serde::Deserialize;
 use std::env;
+use std::fs::File;
 use std::process::exit;
 
 #[derive(Debug, Deserialize)]
-#[expect(dead_code, reason = "Will be used in later steps")]
 struct SchemaField {
     field_name: String,
     description: String,
-    kind: String, // "text", "number", "category"
+    kind: String,
     infer: bool,
 }
 
@@ -27,4 +28,23 @@ async fn main() {
     println!("PDF: {pdf_path}");
     println!("Schema: {schema_path}");
     println!("Output: {output_path}");
+
+    let schema = read_schema(schema_path);
+    println!("Loaded {} fields from schema", schema.len());
+    for field in &schema {
+        println!("  - {}: {} ({})", field.field_name, field.description, field.kind);
+    }
+}
+
+fn read_schema(path: &str) -> Vec<SchemaField> {
+    let file = File::open(path).expect("Failed to open schema file");
+    let mut reader = Reader::from_reader(file);
+    
+    let mut fields = Vec::new();
+    for result in reader.deserialize() {
+        let field: SchemaField = result.expect("Failed to parse schema row");
+        fields.push(field);
+    }
+    
+    fields
 }
