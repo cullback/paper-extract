@@ -1,7 +1,8 @@
+use base64::{Engine as _, engine::general_purpose};
 use csv::Reader;
 use serde::Deserialize;
 use std::env;
-use std::fs::File;
+use std::fs::{self, File};
 use std::process::exit;
 
 #[derive(Debug, Deserialize)]
@@ -37,6 +38,12 @@ async fn main() {
             field.field_name, field.description, field.kind, field.infer
         );
     }
+
+    let pdf_base64 = pdf_to_base64(pdf_path);
+    println!(
+        "PDF encoded to base64 data URL ({} chars)",
+        pdf_base64.len()
+    );
 }
 
 fn read_schema(path: &str) -> Vec<SchemaField> {
@@ -50,4 +57,10 @@ fn read_schema(path: &str) -> Vec<SchemaField> {
     }
 
     fields
+}
+
+fn pdf_to_base64(path: &str) -> String {
+    let pdf_data = fs::read(path).expect("Failed to read PDF file");
+    let base64_data = general_purpose::STANDARD.encode(pdf_data);
+    format!("data:application/pdf;base64,{base64_data}")
 }
