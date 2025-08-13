@@ -1,6 +1,7 @@
 use base64::{Engine as _, engine::general_purpose};
 use csv::Reader;
 use serde::Deserialize;
+use serde_json::{Value, json};
 use std::env;
 use std::fs::{self, File};
 use std::process::exit;
@@ -39,6 +40,10 @@ async fn main() {
         );
     }
 
+    let json_schema = build_json_schema(&schema);
+    println!("Built JSON schema for structured output:");
+    println!("{}", serde_json::to_string_pretty(&json_schema).unwrap());
+
     let pdf_base64 = pdf_to_base64(pdf_path);
     println!(
         "PDF encoded to base64 data URL ({} chars)",
@@ -63,4 +68,33 @@ fn pdf_to_base64(path: &str) -> String {
     let pdf_data = fs::read(path).expect("Failed to read PDF file");
     let base64_data = general_purpose::STANDARD.encode(pdf_data);
     format!("data:application/pdf;base64,{base64_data}")
+}
+
+fn build_json_schema(fields: &[SchemaField]) -> Value {
+    let mut properties = serde_json::Map::new();
+    let mut required = Vec::new();
+
+    for field in fields {
+        let field_type = match field.kind.as_str() {
+            "number" => "number",
+            _ => "string",
+        };
+
+        properties.insert(
+            field.field_name.clone(),
+            json!({
+                "type": field_type,
+                "description": field.description
+            }),
+        );
+
+        required.push(field.field_name.clone());
+    }
+
+    json!({
+        "type": "object",
+        "properties": properties,
+        "required": required,
+        "additionalProperties": false
+    })
 }
