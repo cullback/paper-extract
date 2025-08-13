@@ -1,5 +1,6 @@
 use base64::{Engine as _, engine::general_purpose};
 use csv::Reader;
+use reqwest::Client;
 use serde::Deserialize;
 use serde_json::{Value, json};
 use std::env;
@@ -49,6 +50,13 @@ async fn main() {
         "PDF encoded to base64 data URL ({} chars)",
         pdf_base64.len()
     );
+
+    let api_key = env::var("OPENROUTER_API_KEY")
+        .expect("OPENROUTER_API_KEY environment variable not set");
+
+    let response = call_openrouter(pdf_base64, &schema, &api_key).await;
+    println!("OpenRouter response:");
+    println!("{}", serde_json::to_string_pretty(&response).unwrap());
 }
 
 fn read_schema(path: &str) -> Vec<SchemaField> {
@@ -97,4 +105,73 @@ fn build_json_schema(fields: &[SchemaField]) -> Value {
         "required": required,
         "additionalProperties": false
     })
+}
+
+async fn call_openrouter(
+    pdf_base64: String,
+    fields: &[SchemaField],
+    api_key: &str,
+) -> Value {
+    let client = Client::new();
+
+    let json_schema = build_json_schema(fields);
+
+    let mut prompt =
+        String::from("Extract the following fields from this document:\n\n");
+    for field in fields {
+        prompt.push_str("- ");
+        prompt.push_str(&field.field_name);
+        prompt.push_str(": ");
+        prompt.push_str(&field.description);
+        if field.infer {
+            prompt.push_str(" (infer if not explicitly stated)");
+        }
+        prompt.push('\n');
+    }
+    prompt.push_str(
+        "\nReturn the data in the exact JSON format specified by the schema.",
+    );
+
+    let request_body = json!({
+        "model": "openai/gpt-4o",
+        "messages": [
+            {
+                "role": "user",
+                "content": [
+                    {
+                        "type": "text",
+                        "text": prompt
+                    },
+                    {
+                        "type": "file",
+                        "file": {
+                            "filename": "document.pdf",
+                            "file_data": pdf_base64
+                        }
+                    }
+                ]
+            }
+        ],
+        "response_format": {
+            "type": "json_schema",
+            "json_schema": {
+                "name": "extraction",
+                "strict": true,
+                "schema": json_schema
+            }
+        },
+        "plugins": ["pdf-text"]
+    });
+
+    let response = client
+        .post("https://openrouter.ai/api/v1/chat/completions")
+        .header("Authorization", format!("Bearer {api_key}"))
+        .header("Content-Type", "application/json")
+        .json(&request_body)
+        .send()
+        .await
+        .expect("Failed to send request to OpenRouter");
+
+    let response_text = response.text().await.expect("Failed to read response");
+    serde_json::from_str(&response_text).expect("Failed to parse JSON response")
 }
