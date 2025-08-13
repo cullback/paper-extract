@@ -1,5 +1,5 @@
 use base64::{Engine as _, engine::general_purpose};
-use csv::Reader;
+use csv::{Reader, Writer};
 use reqwest::Client;
 use serde::Deserialize;
 use serde_json::{Value, json};
@@ -59,6 +59,9 @@ async fn main() {
     let response = call_openrouter(pdf_base64, &schema, &api_key).await;
     println!("OpenRouter response:");
     println!("{}", serde_json::to_string_pretty(&response).unwrap());
+
+    write_csv(output_path, &response, &schema);
+    println!("\nData written to {output_path}");
 }
 
 fn read_schema(path: &str) -> Vec<SchemaField> {
@@ -175,4 +178,41 @@ async fn call_openrouter(
 
     let response_text = response.text().await.expect("Failed to read response");
     serde_json::from_str(&response_text).expect("Failed to parse JSON response")
+}
+
+fn write_csv(output_path: &str, response: &Value, fields: &[SchemaField]) {
+    let file = File::create(output_path).expect("Failed to create output file");
+    let mut writer = Writer::from_writer(file);
+
+    let mut headers = Vec::new();
+    for field in fields {
+        headers.push(field.field_name.clone());
+    }
+    writer
+        .write_record(&headers)
+        .expect("Failed to write headers");
+
+    let content = &response["choices"][0]["message"]["content"];
+    let extracted_data: Value = if content.is_string() {
+        serde_json::from_str(content.as_str().unwrap())
+            .expect("Failed to parse extracted data")
+    } else {
+        content.clone()
+    };
+
+    let mut row = Vec::new();
+    for field in fields {
+        let value = &extracted_data[&field.field_name];
+        let cell_value = match value {
+            Value::String(s) => s.clone(),
+            Value::Number(n) => n.to_string(),
+            Value::Bool(b) => b.to_string(),
+            Value::Null => String::new(),
+            _ => serde_json::to_string(value).unwrap_or_default(),
+        };
+        row.push(cell_value);
+    }
+    writer.write_record(&row).expect("Failed to write data row");
+
+    writer.flush().expect("Failed to flush CSV writer");
 }
