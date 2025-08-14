@@ -3,6 +3,7 @@ use csv::{Reader, Writer};
 use reqwest::Client;
 use serde::Deserialize;
 use serde_json::{Value, json};
+use std::fmt::Write as _;
 use std::env;
 use std::fs::{self, File};
 use std::process::exit;
@@ -166,10 +167,7 @@ async fn call_openrouter(
 
     let mut fields_list = String::new();
     for field in fields {
-        fields_list.push_str(&format!(
-            "- **{}**: {}\n",
-            field.field_name, field.description
-        ));
+        writeln!(&mut fields_list, "- **{}**: {}", field.field_name, field.description).unwrap();
         if field.infer {
             fields_list.push_str(
                 "  (This field should be inferred if not explicitly found)\n",
@@ -260,12 +258,12 @@ fn write_csv(output_path: &str, response: &Value, fields: &[SchemaField]) {
                 )
             });
 
-        let value = match &field_data.value {
-            Some(Value::String(s)) => s.clone(),
-            Some(Value::Number(n)) => n.to_string(),
-            Some(Value::Bool(b)) => b.to_string(),
+        let value = match field_data.value.clone() {
+            Some(Value::String(string_val)) => string_val,
+            Some(Value::Number(number_val)) => number_val.to_string(),
+            Some(Value::Bool(bool_val)) => bool_val.to_string(),
             Some(Value::Null) | None => String::new(),
-            Some(v) => serde_json::to_string(v).unwrap_or_default(),
+            Some(value_obj) => serde_json::to_string(&value_obj).unwrap_or_default(),
         };
 
         let row = vec![
