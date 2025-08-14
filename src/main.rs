@@ -3,8 +3,8 @@ use csv::{Reader, Writer};
 use reqwest::Client;
 use serde::Deserialize;
 use serde_json::{Value, json};
-use std::fmt::Write as _;
 use std::env;
+use std::fmt::Write as _;
 use std::fs::{self, File};
 use std::process::exit;
 
@@ -167,7 +167,12 @@ async fn call_openrouter(
 
     let mut fields_list = String::new();
     for field in fields {
-        writeln!(&mut fields_list, "- **{}**: {}", field.field_name, field.description).unwrap();
+        writeln!(
+            &mut fields_list,
+            "- **{}**: {}",
+            field.field_name, field.description
+        )
+        .unwrap();
         if field.infer {
             fields_list.push_str(
                 "  (This field should be inferred if not explicitly found)\n",
@@ -263,7 +268,9 @@ fn write_csv(output_path: &str, response: &Value, fields: &[SchemaField]) {
             Some(Value::Number(number_val)) => number_val.to_string(),
             Some(Value::Bool(bool_val)) => bool_val.to_string(),
             Some(Value::Null) | None => String::new(),
-            Some(value_obj) => serde_json::to_string(&value_obj).unwrap_or_default(),
+            Some(value_obj) => {
+                serde_json::to_string(&value_obj).unwrap_or_default()
+            }
         };
 
         let row = vec![
