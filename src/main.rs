@@ -15,6 +15,21 @@ struct SchemaField {
     infer: bool,
 }
 
+#[derive(Debug, Deserialize)]
+struct ExtractedField {
+    value: Option<serde_json::Value>,
+    match_type: String,
+    comment: String,
+    page: i64,
+    xmin: f64,
+    ymin: f64,
+    xmax: f64,
+    ymax: f64,
+}
+
+use std::collections::HashMap;
+type ExtractionResult = HashMap<String, ExtractedField>;
+
 #[tokio::main]
 async fn main() {
     let args: Vec<String> = env::args().collect();
@@ -227,45 +242,42 @@ fn write_csv(output_path: &str, response: &Value, fields: &[SchemaField]) {
         .expect("Failed to write headers");
 
     let content = &response["choices"][0]["message"]["content"];
-    let extracted_data: Value = if content.is_string() {
-        serde_json::from_str(content.as_str().unwrap())
-            .expect("Failed to parse extracted data")
+    let content_str = if content.is_string() {
+        content.as_str().unwrap()
     } else {
-        content.clone()
+        panic!("Expected string content in response");
     };
 
+    let extracted_data: ExtractionResult = serde_json::from_str(content_str)
+        .expect("Failed to parse extracted data into ExtractionResult");
+
     for field in fields {
-        let field_data = &extracted_data[&field.field_name];
+        let field_data =
+            extracted_data.get(&field.field_name).unwrap_or_else(|| {
+                panic!(
+                    "Field {} not found in extraction result",
+                    field.field_name
+                )
+            });
 
-        let value = if let Some(s) = field_data["value"].as_str() {
-            s.to_string()
-        } else if let Some(n) = field_data["value"].as_f64() {
-            n.to_string()
-        } else if let Some(b) = field_data["value"].as_bool() {
-            b.to_string()
-        } else {
-            String::new()
+        let value = match &field_data.value {
+            Some(Value::String(s)) => s.clone(),
+            Some(Value::Number(n)) => n.to_string(),
+            Some(Value::Bool(b)) => b.to_string(),
+            Some(Value::Null) | None => String::new(),
+            Some(v) => serde_json::to_string(v).unwrap_or_default(),
         };
-
-        let match_type =
-            field_data["match_type"].as_str().unwrap_or("not_found");
-        let comment = field_data["comment"].as_str().unwrap_or("");
-        let page = field_data["page"].as_i64().unwrap_or(0).to_string();
-        let xmin = field_data["xmin"].as_f64().unwrap_or(0.0).to_string();
-        let ymin = field_data["ymin"].as_f64().unwrap_or(0.0).to_string();
-        let xmax = field_data["xmax"].as_f64().unwrap_or(0.0).to_string();
-        let ymax = field_data["ymax"].as_f64().unwrap_or(0.0).to_string();
 
         let row = vec![
             field.field_name.clone(),
             value,
-            match_type.to_string(),
-            comment.to_string(),
-            page,
-            xmin,
-            ymin,
-            xmax,
-            ymax,
+            field_data.match_type.clone(),
+            field_data.comment.clone(),
+            field_data.page.to_string(),
+            field_data.xmin.to_string(),
+            field_data.ymin.to_string(),
+            field_data.xmax.to_string(),
+            field_data.ymax.to_string(),
         ];
 
         writer.write_record(&row).expect("Failed to write data row");
