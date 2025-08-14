@@ -36,3 +36,4 @@ std_instead_of_core = "allow"
 unwrap_used = "allow"
 
 indexing_slicing = "allow"
+option_if_let_else = "allow"
