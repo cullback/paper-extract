@@ -7,7 +7,9 @@ check:
     cargo fmt --check; or set failed 1
     cargo clippy; or set failed 1
     
-    git stash list | rg -q "just-check-stash" && git stash pop &>/dev/null
+    git stash list \
+        | head -n1 \
+        | rg -q "just-check-stash" && git stash pop &>/dev/null
     
     exit $failed
 
