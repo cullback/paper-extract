@@ -1,0 +1,83 @@
+field_name,value,match_type,comment,page,xmin,ymin,xmax,ymax
+Citation,Scheer et al. (2015),found,,1,361,332,427,341
+Research Title,"Non-union in 3 of 15 osteotomies of the distal
+radius without bone graft",found,,1,204,218,639,252
+Study Location,Sweden,found,,2,651,227,692,236
+Study Design,Prospective cohort,inferred,"The study included 15 patients and followed them until radiographic and clinical healing, suggesting a prospective design.",2,0,0,0,0
+Intervention Arm,without bone graft,found,,2,366,425,472,435
+Fracture Characteristics,dorsal malunion,found,,2,180,444,328,454
+Angulation,dorsal,found,,2,223,634,269,643
+Gap (mm),,not_found,,0,0,0,0,0
+Operative Technique,"palmar approach, angle-stable plates",found,,3,178,308,454,325
+Time to Osteotomy (weeks),48,inferred,,2,444,870,461,880
+Patient age (years),56,found,,2,353,860,371,870
+Pre-osteotomy sample size,15,found,,2,312,471,329,481
+Post-osteotomy sample Size,,not_found,,0,0,0,0,0
+Time to Union (weeks),24,found,,3,353,593,371,602
+DASH score (before),,not_found,,0,0,0,0,0
+DASH score (3 months),,not_found,,0,0,0,0,0
+DASH score (6 months),,not_found,,0,0,0,0,0
+DASH score (1 year),,not_found,,0,0,0,0,0
+DASH score (>1 year),,not_found,,0,0,0,0,0
+QuickDASH (before),,not_found,,0,0,0,0,0
+QuickDASH (3 months),,not_found,Not found in document.,1,0,0,0,0
+QuickDASH (6 months),,not_found,Not found in document.,1,0,0,0,0
+QuickDASH (1 year),,not_found,Not found in document.,1,0,0,0,0
+QuickDASH (>1 year),,not_found,Not found in document.,1,0,0,0,0
+PRWE (before),,not_found,Not found in document.,1,0,0,0,0
+PRWE (3 months),,not_found,Not found in document.,1,0,0,0,0
+PRWE (6 months),,not_found,Not found in document.,1,0,0,0,0
+PRWE (1 year),,not_found,Not found in document.,1,0,0,0,0
+PRWE (>1 year),,not_found,Not found in document.,1,0,0,0,0
+Visual Analogue Scale (VAS) (Before),,not_found,Not found in document.,1,0,0,0,0
+Visual Analogue Scale (VAS) (3 months),,not_found,Not found in document.,1,0,0,0,0
+Visual Analogue Scale (VAS) (6 months),,not_found,Not found in document.,1,0,0,0,0
+Visual Analogue Scale (VAS) (1 year),,not_found,Not found in document.,1,0,0,0,0
+Visual Analogue Scale (VAS) (>1 year),,not_found,Not found in document.,1,0,0,0,0
+Mayo Wrist Score (Before),,not_found,Not found in document.,1,0,0,0,0
+Mayo Wrist Score (3 months),,not_found,Not found in document.,1,0,0,0,0
+Mayo Wrist Score (6 months),,not_found,Not found in document.,1,0,0,0,0
+Mayo Wrist Score (1 year),,not_found,Not found in document.,1,0,0,0,0
+Mayo Wrist Score (>1 year),,not_found,Not found in document.,1,0,0,0,0
+Wrist Flexion (degrees) (Before),,not_found,Not found in document.,1,0,0,0,0
+Wrist Flexion (degrees) (3 months),,not_found,,2,0,0,0,0
+Wrist Flexion (degrees) (6 months),,not_found,,2,0,0,0,0
+Wrist Flexion (degrees) (1 year),,not_found,,2,0,0,0,0
+Wrist Flexion (degrees) (>1 year),,not_found,,2,0,0,0,0
+Wrist Extension (degrees) (Before),,not_found,,2,0,0,0,0
+Wrist Extension (degrees) (3 months),,not_found,,2,0,0,0,0
+Wrist Extension (degrees) (6 months),,not_found,,2,0,0,0,0
+Wrist Extension (degrees) (1 year),,not_found,,2,0,0,0,0
+Wrist Extension (degrees) (>1 year),,not_found,,2,0,0,0,0
+Supination (degrees) (Before),,not_found,,2,0,0,0,0
+Supination (degrees) (3 months),,not_found,,2,0,0,0,0
+Supination (degrees) (6 months),,not_found,,2,0,0,0,0
+Supination (degrees) (1 year),,not_found,,2,0,0,0,0
+Supination (degrees) (>1 year),,not_found,,2,0,0,0,0
+Pronation (degrees) (Before),,not_found,,2,0,0,0,0
+Pronation (degrees) (3 months),,not_found,,2,0,0,0,0
+Pronation (degrees) (6 months),,not_found,,2,0,0,0,0
+Pronation (degrees) (1 year),,not_found,,2,0,0,0,0
+Pronation (degrees) (>1 year),,not_found,,2,0,0,0,0
+Radial Deviation (degrees) (Before),,not_found,,2,0,0,0,0
+Radial Deviation (degrees) (3 months),,not_found,,0,0,0,0,0
+Radial Deviation (degrees) (6 months),,not_found,,0,0,0,0,0
+Radial Deviation (degrees) (1 year),,not_found,,0,0,0,0,0
+Radial Deviation (degrees) (>1 year),,not_found,,0,0,0,0,0
+Ulnar Deviation (degrees) (Before),,not_found,,0,0,0,0,0
+Ulnar Deviation (degrees) (3 months),,not_found,,0,0,0,0,0
+Ulnar Deviation (degrees) (6 months),,not_found,,0,0,0,0,0
+Ulnar Deviation (degrees) (1 year),,not_found,,0,0,0,0,0
+Ulnar Deviation (degrees) (>1 year),,not_found,,0,0,0,0,0
+Grip Strength (percent) (Before),,not_found,,0,0,0,0,0
+Grip Strength (percent) (3 months),,not_found,,0,0,0,0,0
+Grip Strength (percent) (6 months),,not_found,,0,0,0,0,0
+Grip Strength (percent) (1 year),,not_found,,0,0,0,0,0
+Grip Strength (percent) (>1 year),,not_found,,0,0,0,0,0
+Radial inclination (degrees) (Before),,inferred,"Inferred from 'radial height'. Max 14mm, min 8mm.",3,0,0,0,0
+Radial inclination (degrees) (After),0.0,found,,4,622.75,95.77,637.38,105.77
+Dorsal angulation (degrees) (Before),17.0,found,,3,372.93,74.7,395.73,84.7
+Dorsal angulation (degrees) (After),1.0,found,,4,622.84,68.43,639.11,78.43
+Ulnar variance (millimeters) (Before),2.0,found,,3,349.95,84.67,361.35,94.67
+Ulnar variance (millimeters) (After),0.0,found,,4,622.78,82.05,639.14,92.05
+Summary of Findings,"Non-union occurred in 3 of 15 osteotomies of the distal radius without bone graft, particularly when a trapezoid defect was created. This suggests reconsideration of bone grafting.",inferred,The study found a concerning rate of non-union (3 out of 15 cases) in distal radius osteotomies performed without bone grafting.,2,0,0,0,0

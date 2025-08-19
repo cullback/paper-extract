@@ -1,0 +1,82 @@
+field_name,value,match_type,comment,page,xmin,ymin,xmax,ymax
+Citation,Ozer et al. (2011),found,,1,454.4,507.78,697.58,516.38
+Research Title,The Role of Bone Allografts in the Treatment of Angular Malunions of the Distal Radius,found,,1,242.06,72.82,720.57,115.93
+Study Location,Colorado,found,,1,393.59,734.48,435.53,743.08
+Study Design,Retrospective,inferred,The study compared two groups retrospectively,1,509.33,522.13,709.68,530.73
+Intervention Arm,Allograft; No graft,found,,1,287.49,263.63,639.11,272.23
+Fracture Characteristics,Extra-articular,inferred,Fracture type inferred based on malunited extra-articular fracture.,2,194.52,448.36,443.43,456.96
+Angulation,Dorsal,found,Dorsal angulation mentioned as an exclusion criteria.,2,366.18,472.96,427.38,481.56
+Gap (mm),2.0,found,"Gap is described by ""shortening on the anteroposterior plane"" in mm.",2,402.09,472.96,427.39,481.56
+Operative Technique,Volar locking plate,found,Volar locking plate explicitly mentioned as the operative technique.,1,516.48,547,718.52,560.13
+Time to Osteotomy (weeks),11.0,found,,4,283.47,280.86,300.99,290.46
+Patient age (years),35.0,found,,4,283.47,247.46,300.99,257.06
+Pre-osteotomy sample size,14.0,found,,1,297.66,250.38,311.96,258.98
+Post-osteotomy sample Size,14.0,found,,1,298.81,263.63,313.11,272.23
+Time to Union (weeks),11.0,found,,4,283.47,466.72,300.99,476.32
+DASH score (before),38.0,found,,4,283.47,435,300.99,444.6
+DASH score (3 months),,not_found,,0,0,0,0,0
+DASH score (6 months),,not_found,,0,0,0,0,0
+DASH score (1 year),,not_found,,0,0,0,0,0
+DASH score (>1 year),,not_found,,0,0,0,0,0
+QuickDASH (before),,not_found,,0,0,0,0,0
+QuickDASH (3 months),,not_found,,1,0,0,0,0
+QuickDASH (6 months),,not_found,,1,0,0,0,0
+QuickDASH (1 year),,not_found,,1,0,0,0,0
+QuickDASH (>1 year),,not_found,,1,0,0,0,0
+PRWE (before),8.9,found,,4,328,425,349,435
+PRWE (3 months),,not_found,,1,0,0,0,0
+PRWE (6 months),,not_found,,1,0,0,0,0
+PRWE (1 year),,not_found,,1,0,0,0,0
+PRWE (>1 year),,not_found,,1,0,0,0,0
+Visual Analogue Scale (VAS) (Before),,not_found,,1,0,0,0,0
+Visual Analogue Scale (VAS) (3 months),,not_found,,1,0,0,0,0
+Visual Analogue Scale (VAS) (6 months),,not_found,,1,0,0,0,0
+Visual Analogue Scale (VAS) (1 year),,not_found,,1,0,0,0,0
+Visual Analogue Scale (VAS) (>1 year),,not_found,,1,0,0,0,0
+Mayo Wrist Score (Before),,not_found,,1,0,0,0,0
+Mayo Wrist Score (3 months),,not_found,,1,0,0,0,0
+Mayo Wrist Score (6 months),,not_found,,1,0,0,0,0
+Mayo Wrist Score (1 year),,not_found,,1,0,0,0,0
+Mayo Wrist Score (>1 year),,not_found,,1,0,0,0,0
+Wrist Flexion (degrees) (Before),62.0,found,,4,328,378,357,388
+Wrist Flexion (degrees) (3 months),,not_found,NULL,0,0,0,0,0
+Wrist Flexion (degrees) (6 months),,not_found,NULL,0,0,0,0,0
+Wrist Flexion (degrees) (1 year),,not_found,NULL,0,0,0,0,0
+Wrist Flexion (degrees) (>1 year),,not_found,NULL,0,0,0,0,0
+Wrist Extension (degrees) (Before),62.0,found,NULL,4,331,386,353,395
+Wrist Extension (degrees) (3 months),,not_found,NULL,0,0,0,0,0
+Wrist Extension (degrees) (6 months),,not_found,NULL,0,0,0,0,0
+Wrist Extension (degrees) (1 year),,not_found,NULL,0,0,0,0,0
+Wrist Extension (degrees) (>1 year),,not_found,NULL,0,0,0,0,0
+Supination (degrees) (Before),87.0,found,NULL,4,331,418,353,427
+Supination (degrees) (3 months),,not_found,NULL,0,0,0,0,0
+Supination (degrees) (6 months),,not_found,NULL,0,0,0,0,0
+Supination (degrees) (1 year),,not_found,NULL,0,0,0,0,0
+Supination (degrees) (>1 year),,not_found,NULL,0,0,0,0,0
+Pronation (degrees) (Before),87.0,found,NULL,4,331,418,353,427
+Pronation (degrees) (3 months),,not_found,NULL,0,0,0,0,0
+Pronation (degrees) (6 months),,not_found,NULL,0,0,0,0,0
+Pronation (degrees) (1 year),,not_found,NULL,0,0,0,0,0
+Pronation (degrees) (>1 year),,not_found,NULL,0,0,0,0,0
+Radial Deviation (degrees) (Before),,not_found,NULL,0,0,0,0,0
+Radial Deviation (degrees) (3 months),,inferred,NULL,1,0,0,0,0
+Radial Deviation (degrees) (6 months),,inferred,NULL,1,0,0,0,0
+Radial Deviation (degrees) (1 year),,inferred,NULL,1,0,0,0,0
+Radial Deviation (degrees) (>1 year),,inferred,NULL,1,0,0,0,0
+Ulnar Deviation (degrees) (Before),,inferred,NULL,1,0,0,0,0
+Ulnar Deviation (degrees) (3 months),,inferred,NULL,1,0,0,0,0
+Ulnar Deviation (degrees) (6 months),,inferred,NULL,1,0,0,0,0
+Ulnar Deviation (degrees) (1 year),,inferred,NULL,1,0,0,0,0
+Ulnar Deviation (degrees) (>1 year),,inferred,NULL,1,0,0,0,0
+Grip Strength (percent) (Before),,inferred,NULL,1,0,0,0,0
+Grip Strength (percent) (3 months),,inferred,NULL,1,0,0,0,0
+Grip Strength (percent) (6 months),,inferred,NULL,1,0,0,0,0
+Grip Strength (percent) (1 year),,inferred,NULL,1,0,0,0,0
+Grip Strength (percent) (>1 year),,inferred,NULL,1,0,0,0,0
+Radial inclination (degrees) (Before),,inferred,NULL,1,0,0,0,0
+Radial inclination (degrees) (After),,inferred,NULL,1,0,0,0,0
+Dorsal angulation (degrees) (Before),,inferred,NULL,1,0,0,0,0
+Dorsal angulation (degrees) (After),,inferred,NULL,1,0,0,0,0
+Ulnar variance (millimeters) (Before),,inferred,NULL,1,0,0,0,0
+Ulnar variance (millimeters) (After),,inferred,NULL,1,0,0,0,0
+Summary of Findings,This study found that bone allograft did not improve the final outcome for distal radius angular malunions when volar cortical contact was maintained using a volar locked plate. ,inferred,"Inferred from the ""Conclusions"" section.",1,0,0,0,0

@@ -1,0 +1,82 @@
+field_name,value,match_type,comment,page,xmin,ymin,xmax,ymax
+Citation,Miyake et al. (2011),found,,1,184,208,393,218
+Research Title,Distal Radius Osteotomy with Volar Locking Plates Based on Computer Simulation,found,,1,178,136,698,164
+Study Location,Japan,found,,1,368,872,404,880
+Study Design,Retrospective,found,,2,204,176,451,185
+Intervention Arm,Autogenous iliac cancellous bone,found,,1,510,566,454,574
+Fracture Characteristics,Extra articular,found,,2,381,404,560,412
+Angulation,Dorsal,found,dorsally displaced malunions without intraarticular malunion,2,366,412,639,420
+Gap (mm),,not_found,,0,0,0,0,0
+Operative Technique,Volar locking plates,found,,1,188,174,459,184
+Time to Osteotomy (weeks),40,found,The median interval between injury and surgery was 10 months,2,459,448,530,456
+Patient age (years),60,found,Range of 27-79 years,2,366,353,482,361
+Pre-osteotomy sample size,10,found,,2,366,324,444,332
+Post-osteotomy sample Size,,not_found,,0,0,0,0,0
+Time to Union (weeks),16,found,"median of 4 months (range, 2-5 months)",5,348,323,446,331
+DASH score (before),,not_found,,0,0,0,0,0
+DASH score (3 months),,not_found,,0,0,0,0,0
+DASH score (6 months),,not_found,,0,0,0,0,0
+DASH score (1 year),,not_found,,0,0,0,0,0
+DASH score (>1 year),,not_found,,0,0,0,0,0
+QuickDASH (before),,not_found,,0,0,0,0,0
+QuickDASH (3 months),,not_found,"No mention of QuickDASH specifically. Therefore, it is inferred as not found.",1,0,0,0,0
+QuickDASH (6 months),,not_found,"No mention of QuickDASH specifically. Therefore, it is inferred as not found.",1,0,0,0,0
+QuickDASH (1 year),,not_found,"No mention of QuickDASH specifically. Therefore, it is inferred as not found.",1,0,0,0,0
+QuickDASH (>1 year),,not_found,"No mention of QuickDASH specifically. Therefore, it is inferred as not found.",1,0,0,0,0
+PRWE (before),,not_found,"No mention of Patient Rated Wrist Evaluation (PRWE) specifically. Therefore, it is inferred as not found.",1,0,0,0,0
+PRWE (3 months),,not_found,"No mention of Patient Rated Wrist Evaluation (PRWE) specifically. Therefore, it is inferred as not found.",1,0,0,0,0
+PRWE (6 months),,not_found,"No mention of Patient Rated Wrist Evaluation (PRWE) specifically. Therefore, it is inferred as not found.",1,0,0,0,0
+PRWE (1 year),,not_found,"No mention of Patient Rated Wrist Evaluation (PRWE) specifically. Therefore, it is inferred as not found.",1,0,0,0,0
+PRWE (>1 year),,not_found,"No mention of Patient Rated Wrist Evaluation (PRWE) specifically. Therefore, it is inferred as not found.",1,0,0,0,0
+Visual Analogue Scale (VAS) (Before),,not_found,"The document provides qualitative information about wrist pain (VAS equivalent) before surgery and post-surgery status in the 'Results' section and Table 3. However, a specific numerical VAS score is not provided.",5,0,0,0,0
+Visual Analogue Scale (VAS) (3 months),,not_found,"Data for VAS (pain) is available in the 'Pain' column of Table 3. The 3-month data is not specified. Therefore, it is inferred as not found.",1,0,0,0,0
+Visual Analogue Scale (VAS) (6 months),,not_found,"Data for VAS (pain) is available in the 'Pain' column of Table 3. The 6-month data is not specified. Therefore, it is inferred as not found.",1,0,0,0,0
+Visual Analogue Scale (VAS) (1 year),,not_found,"Data for VAS (pain) is available in the 'Pain' column of Table 3. The 1-year data is not specified. Therefore, it is inferred as not found.",1,0,0,0,0
+Visual Analogue Scale (VAS) (>1 year),,not_found,"Data for VAS (pain) is available in the 'Pain' column of Table 3. The >1 year data is not specified. Therefore, it is inferred as not found.",1,0,0,0,0
+Mayo Wrist Score (Before),,not_found,"There's no mention of Mayo Wrist Score in the document. Therefore, it is inferred as not found.",1,0,0,0,0
+Mayo Wrist Score (3 months),,not_found,"There's no mention of Mayo Wrist Score in the document. Therefore, it is inferred as not found.",1,0,0,0,0
+Mayo Wrist Score (6 months),,not_found,"There's no mention of Mayo Wrist Score in the document. Therefore, it is inferred as not found.",1,0,0,0,0
+Mayo Wrist Score (1 year),,not_found,"There's no mention of Mayo Wrist Score in the document. Therefore, it is inferred as not found.",1,0,0,0,0
+Mayo Wrist Score (>1 year),,not_found,"There's no mention of Mayo Wrist Score in the document. Therefore, it is inferred as not found.",1,0,0,0,0
+Wrist Flexion (degrees) (Before),33.0,found,The median wrist flexion before surgery was 33 degrees and is reported on page 5.,5,516,462,771,476
+Wrist Flexion (degrees) (3 months),63,inferred,,6,493,904,515,913
+Wrist Flexion (degrees) (6 months),63,inferred,,6,493,904,515,913
+Wrist Flexion (degrees) (1 year),63,inferred,,6,493,904,515,913
+Wrist Flexion (degrees) (>1 year),63,inferred,,6,493,904,515,913
+Wrist Extension (degrees) (Before),63,found,,6,461,904,483,913
+Wrist Extension (degrees) (3 months),67,inferred,,6,493,904,515,913
+Wrist Extension (degrees) (6 months),67,inferred,,6,493,904,515,913
+Wrist Extension (degrees) (1 year),67,inferred,,6,493,904,515,913
+Wrist Extension (degrees) (>1 year),67,inferred,,6,493,904,515,913
+Supination (degrees) (Before),76,found,,6,565,904,587,913
+Supination (degrees) (3 months),84,inferred,,6,617,904,639,913
+Supination (degrees) (6 months),84,inferred,,6,617,904,639,913
+Supination (degrees) (1 year),84,inferred,,6,617,904,639,913
+Supination (degrees) (>1 year),84,inferred,,6,617,904,639,913
+Pronation (degrees) (Before),71,found,,6,565,904,587,913
+Pronation (degrees) (3 months),81,inferred,,6,617,904,639,913
+Pronation (degrees) (6 months),81,inferred,,6,617,904,639,913
+Pronation (degrees) (1 year),81,inferred,,6,617,904,639,913
+Pronation (degrees) (>1 year),81,inferred,,6,617,904,639,913
+Radial Deviation (degrees) (Before),,not_found,,1,0,0,0,0
+Radial Deviation (degrees) (3 months),,not_found,,0,0,0,0,0
+Radial Deviation (degrees) (6 months),,not_found,,0,0,0,0,0
+Radial Deviation (degrees) (1 year),,not_found,,0,0,0,0,0
+Radial Deviation (degrees) (>1 year),,not_found,,0,0,0,0,0
+Ulnar Deviation (degrees) (Before),,not_found,,0,0,0,0,0
+Ulnar Deviation (degrees) (3 months),,not_found,,0,0,0,0,0
+Ulnar Deviation (degrees) (6 months),,not_found,,0,0,0,0,0
+Ulnar Deviation (degrees) (1 year),,not_found,,0,0,0,0,0
+Ulnar Deviation (degrees) (>1 year),,not_found,,0,0,0,0,0
+Grip Strength (percent) (Before),37.0,found,The value of 37% is the median grip strength before surgery.,5,331,526,349,535
+Grip Strength (percent) (3 months),,not_found,,0,0,0,0,0
+Grip Strength (percent) (6 months),,not_found,,0,0,0,0,0
+Grip Strength (percent) (1 year),,not_found,,0,0,0,0,0
+Grip Strength (percent) (>1 year),,not_found,,0,0,0,0,0
+Radial inclination (degrees) (Before),13.0,found,The value of 13 degrees is the median radial inclination BEFORE surgery.,1,622,484,639,493
+Radial inclination (degrees) (After),24.0,found,The value 24 degrees is the median radial inclination AFTER surgery.,1,622,493,639,502
+Dorsal angulation (degrees) (Before),20.0,inferred,"Inferred from ""volar tilt"" of -20 degrees. Dorsal angulation is the opposite of volar tilt.",1,0,0,0,0
+Dorsal angulation (degrees) (After),-12.0,inferred,"Inferred from ""volar tilt"" changing from -20 to 12 degrees. Dorsal angulation is the opposite of volar tilt.",1,0,0,0,0
+Ulnar variance (millimeters) (Before),6.0,found,The value of 6mm is the median ulnar variance before surgery.,1,660,484,677,493
+Ulnar variance (millimeters) (After),1.0,found,The value of 1mm is the median ulnar variance after surgery.,1,660,493,677,502
+Summary of Findings,"This study evaluated a computer-aided system for distal radius osteotomy with volar locking plates. The results show improved wrist function and pain reduction, making it a new treatment option.",inferred,The text does not contain a specific summary of findings.,1,0,0,0,0

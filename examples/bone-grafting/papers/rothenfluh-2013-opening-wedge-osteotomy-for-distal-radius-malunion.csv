@@ -1,0 +1,82 @@
+field_name,value,match_type,comment,page,xmin,ymin,xmax,ymax
+Citation,Rothenfluh et al. (2013),found,,1,184,149,269,158
+Research Title,Opening Wedge Osteotomy for Distal Radius Malunion: Dorsal or Palmar Approach?,found,,1,184,75,791,128
+Study Location,Switzerland,found,,1,389,178,435,187
+Study Design,Retrospective,found,,1,344,344,435,353
+Intervention Arm,Dorsal approach with trapezoidal graft and mini-fragment plate; Palmar approach with fixed-angle plate and cancellous bone chips,inferred,The study compared dorsal and palmar approach techniques.,1,344,339,792,472
+Fracture Characteristics,Colles fracture (malunion in extension and shortening),inferred,Study focused on malunited Colles fracture (malunion in extension and shortening).,2,204,445,341,454
+Angulation,,not_found,,1,0,0,0,0
+Gap (mm),,not_found,,1,0,0,0,0
+Operative Technique,"Opening wedge osteotomy, Dorsal approach, Palmar approach",found,The study compares dorsal and palmar approaches for corrective osteotomy.,1,202,605,336,622
+Time to Osteotomy (weeks),,not_found,,1,0,0,0,0
+Patient age (years),45.14,found,,2,343,642,403,651
+Pre-osteotomy sample size,65,found,,2,379,384,395,393
+Post-osteotomy sample Size,22,found,,2,379,456,395,465
+Time to Union (weeks),12,found,Bony trabeculae crossing osteotomy within 3 months (approximately 12 weeks).,4,317,470,344,479
+DASH score (before),,found,DASH scores were not collected preoperatively.,3,511,637,717,646
+DASH score (3 months),,inferred,DASH scores were not collected preoperatively. Postoperative values are available in the Results section.,3,0,0,0,0
+DASH score (6 months),,inferred,DASH scores were not collected preoperatively. Postoperative values are available in the Results section.,3,0,0,0,0
+DASH score (1 year),,inferred,DASH scores were not collected preoperatively. Postoperative values are available in the Results section.,3,0,0,0,0
+DASH score (>1 year),,inferred,DASH scores were not collected preoperatively. Postoperative values are available in the Results section.,3,0,0,0,0
+QuickDASH (before),,not_found,,1,0,0,0,0
+QuickDASH (3 months),18.78,found,"DASH-score 20.24 +/- 32.14 in group 1 and 17.32 +/- 22.45 in group 2. Data from after ""minimal follow-up of one year"".",3,331,718,427,724
+QuickDASH (6 months),,not_found,NULL,1,0,0,0,0
+QuickDASH (1 year),,inferred,DASH score is listed for > 1 year follow up for 3 months.,3,0,0,0,0
+QuickDASH (>1 year),,not_found,NULL,1,0,0,0,0
+PRWE (before),,inferred,NULL,1,0,0,0,0
+PRWE (3 months),,not_found,NULL,1,0,0,0,0
+PRWE (6 months),,not_found,NULL,1,0,0,0,0
+PRWE (1 year),,inferred,PRWE not explicitly stated but is implicitly included in special pain and function questionnaire.,1,0,0,0,0
+PRWE (>1 year),,not_found,NULL,1,0,0,0,0
+Visual Analogue Scale (VAS) (Before),5.66,found,Pain at rest was 4.54 +/- 3.01 (group 1) and 4.88 +/- 3.00 (group 2) on the VAS. Pain with loading 6.5 +/- 3.30 (group 1) and 6.73 +/- 2.76 (group 2) on the VAS.,4,286,305,361,328
+Visual Analogue Scale (VAS) (3 months),2.38,found,"Pain at rest VAS (group 1) 1.54 +/- 2.97 and (group 2) 1.29 +/- 2.03. Pain with loading VAS (group 1) 3.61 +/- 3.53 and (group 2) 3.08 +/- 2.87. Data from after ""minimal follow-up of one year"".",3,331,667,423,673
+Visual Analogue Scale (VAS) (6 months),,not_found,NULL,1,0,0,0,0
+Visual Analogue Scale (VAS) (1 year),,inferred,VAS is listed for > 1 year follow-up for 3 months.,3,0,0,0,0
+Visual Analogue Scale (VAS) (>1 year),,not_found,NULL,1,0,0,0,0
+Mayo Wrist Score (Before),,not_found,NULL,1,0,0,0,0
+Mayo Wrist Score (3 months),,not_found,NULL,1,0,0,0,0
+Mayo Wrist Score (6 months),,not_found,NULL,1,0,0,0,0
+Mayo Wrist Score (1 year),,not_found,NULL,1,0,0,0,0
+Mayo Wrist Score (>1 year),,not_found,NULL,1,0,0,0,0
+Wrist Flexion (degrees) (Before),54.5,found,"Wrist motion 54 +/- 21 (group 1), 55 +/- 24 (group 2). The average of these values is 54.5.",3,286,814,332,820
+Wrist Flexion (degrees) (3 months),,not_found,,0,0,0,0,0
+Wrist Flexion (degrees) (6 months),,not_found,,0,0,0,0,0
+Wrist Flexion (degrees) (1 year),,not_found,,0,0,0,0,0
+Wrist Flexion (degrees) (>1 year),71.0,found,"Data corresponds to ""Postoperative"" which means after at least one year follow-up.",4,668,741,691,750
+Wrist Extension (degrees) (Before),69.0,found,,3,562,481,586,490
+Wrist Extension (degrees) (3 months),,not_found,,0,0,0,0,0
+Wrist Extension (degrees) (6 months),,not_found,,0,0,0,0,0
+Wrist Extension (degrees) (1 year),,not_found,,0,0,0,0,0
+Wrist Extension (degrees) (>1 year),65.0,found,"Data corresponds to ""Postoperative"" which means after at least one year follow-up.",4,668,756,691,765
+Supination (degrees) (Before),71.0,found,,3,562,511,586,520
+Supination (degrees) (3 months),,not_found,,0,0,0,0,0
+Supination (degrees) (6 months),,not_found,,0,0,0,0,0
+Supination (degrees) (1 year),,not_found,,0,0,0,0,0
+Supination (degrees) (>1 year),82.0,found,"Data corresponds to ""Postoperative"" which means after at least one year follow-up.",4,668,771,691,780
+Pronation (degrees) (Before),64.0,found,,3,562,526,586,535
+Pronation (degrees) (3 months),,not_found,,0,0,0,0,0
+Pronation (degrees) (6 months),,not_found,,0,0,0,0,0
+Pronation (degrees) (1 year),,not_found,,0,0,0,0,0
+Pronation (degrees) (>1 year),75.0,found,"Data corresponds to ""Postoperative"" which means after at least one year follow-up.",4,668,786,691,796
+Radial Deviation (degrees) (Before),23.0,found,,3,562,542,586,551
+Radial Deviation (degrees) (3 months),,not_found,,1,0,0,0,0
+Radial Deviation (degrees) (6 months),,not_found,,1,0,0,0,0
+Radial Deviation (degrees) (1 year),,not_found,,1,0,0,0,0
+Radial Deviation (degrees) (>1 year),19.0,inferred,,4,634,875,662,883
+Ulnar Deviation (degrees) (Before),23.0,inferred,,3,709,639,716,647
+Ulnar Deviation (degrees) (3 months),,not_found,,1,0,0,0,0
+Ulnar Deviation (degrees) (6 months),,not_found,,1,0,0,0,0
+Ulnar Deviation (degrees) (1 year),,not_found,,1,0,0,0,0
+Ulnar Deviation (degrees) (>1 year),36.0,inferred,,4,634,850,662,858
+Grip Strength (percent) (Before),0.74,inferred,,4,639,899,673,907
+Grip Strength (percent) (3 months),,not_found,,1,0,0,0,0
+Grip Strength (percent) (6 months),,not_found,,1,0,0,0,0
+Grip Strength (percent) (1 year),,not_found,,1,0,0,0,0
+Grip Strength (percent) (>1 year),0.92,inferred,,4,639,899,673,907
+Radial inclination (degrees) (Before),16.0,inferred,,4,371,597,381,605
+Radial inclination (degrees) (After),26.0,inferred,,4,366,640,371,648
+Dorsal angulation (degrees) (Before),22.0,inferred,,4,371,597,381,605
+Dorsal angulation (degrees) (After),7.0,inferred,,4,366,640,371,648
+Ulnar variance (millimeters) (Before),1.89,inferred,,4,354,597,381,605
+Ulnar variance (millimeters) (After),-0.23,inferred,,4,348,640,371,648
+Summary of Findings,This study compared dorsal and palmar approaches for distal radius malunion osteotomy. Both methods effectively corrected malunions. Palmar approach resulted in better wrist flexion and less hardware removal.,inferred,Inferred from the abstract to meet the 30-word limit as findings are not summarized.,1,0,0,0,0

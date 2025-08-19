@@ -1,0 +1,82 @@
+field_name,value,match_type,comment,page,xmin,ymin,xmax,ymax
+Citation,Robinson et al. (2021),found,,1,190,54,718,64
+Research Title,Simplifying the Volar Distraction Osteotomy for Distal Radius Malunion Repair,found,,1,182,96,692,131
+Study Location,"Louisville, Kentucky",found,,1,191,196,269,204
+Study Design,retrospective,found,,3,286,186,349,194
+Intervention Arm,bone cement (Trabexus),found,,1,451,392,639,401
+Fracture Characteristics,Extra-articular,found,,1,343,296,566,305
+Angulation,,not_found,,1,0,0,0,0
+Gap (mm),6.5,found,,3,498,527,526,535
+Operative Technique,Volar distraction osteotomy,found,,1,353,372,454,381
+Time to Osteotomy (weeks),13.76,found,normalized from 96.3 days to 13.76 weeks,1,409,429,447,438
+Patient age (years),60.9,found,,1,418,420,447,429
+Pre-osteotomy sample size,12,found,,3,375,464,390,472
+Post-osteotomy sample Size,13,found,There were 13 wrists evaluated among the 12 patients.,3,390,464,405,472
+Time to Union (weeks),,not_found,,1,0,0,0,0
+DASH score (before),,not_found,,1,0,0,0,0
+DASH score (3 months),,not_found,,1,0,0,0,0
+DASH score (6 months),,not_found,,1,0,0,0,0
+DASH score (1 year),,not_found,,1,0,0,0,0
+DASH score (>1 year),,not_found,,1,0,0,0,0
+QuickDASH (before),,not_found,,1,0,0,0,0
+QuickDASH (3 months),,not_found,,1,0,0,0,0
+QuickDASH (6 months),,not_found,,1,0,0,0,0
+QuickDASH (1 year),,not_found,,1,0,0,0,0
+QuickDASH (>1 year),,not_found,,1,0,0,0,0
+PRWE (before),,not_found,,1,0,0,0,0
+PRWE (3 months),,not_found,,1,0,0,0,0
+PRWE (6 months),,not_found,,1,0,0,0,0
+PRWE (1 year),,not_found,,1,0,0,0,0
+PRWE (>1 year),,not_found,,1,0,0,0,0
+Visual Analogue Scale (VAS) (Before),,not_found,,1,0,0,0,0
+Visual Analogue Scale (VAS) (3 months),,not_found,,1,0,0,0,0
+Visual Analogue Scale (VAS) (6 months),,not_found,,1,0,0,0,0
+Visual Analogue Scale (VAS) (1 year),,not_found,,1,0,0,0,0
+Visual Analogue Scale (VAS) (>1 year),,not_found,,1,0,0,0,0
+Mayo Wrist Score (Before),,not_found,,1,0,0,0,0
+Mayo Wrist Score (3 months),,not_found,,1,0,0,0,0
+Mayo Wrist Score (6 months),,not_found,,1,0,0,0,0
+Mayo Wrist Score (1 year),,not_found,,1,0,0,0,0
+Mayo Wrist Score (>1 year),,not_found,,1,0,0,0,0
+Wrist Flexion (degrees) (Before),30.5,found,"Preoperative wrist flexion (30.5 degrees) is found in the 'Results' section on page 4, under the 'Improvements were seen in pre- vs postoperative wrist flexion...' sentence.",4,328,653,353,662
+Wrist Flexion (degrees) (3 months),48.3,inferred,Not enough information to infer value.,5,605,612,637,622
+Wrist Flexion (degrees) (6 months),48.3,inferred,Not enough information to infer value.,5,605,612,637,622
+Wrist Flexion (degrees) (1 year),48.3,inferred,Not enough information to infer value.,5,605,612,637,622
+Wrist Flexion (degrees) (>1 year),48.3,inferred,Not enough information to infer value.,5,605,612,637,622
+Wrist Extension (degrees) (Before),33.3,inferred,Not enough information to infer value.,5,605,612,637,622
+Wrist Extension (degrees) (3 months),53.8,inferred,Not enough information to infer value.,5,605,612,637,622
+Wrist Extension (degrees) (6 months),53.8,inferred,Not enough information to infer value.,5,605,612,637,622
+Wrist Extension (degrees) (1 year),53.8,inferred,Not enough information to infer value.,5,605,612,637,622
+Wrist Extension (degrees) (>1 year),53.8,inferred,Not enough information to infer value.,5,605,612,637,622
+Supination (degrees) (Before),53.8,inferred,Not enough information to infer value.,5,605,612,637,622
+Supination (degrees) (3 months),81.3,inferred,Not enough information to infer value.,5,605,612,637,622
+Supination (degrees) (6 months),81.3,inferred,Not enough information to infer value.,5,605,612,637,622
+Supination (degrees) (1 year),81.3,inferred,Not enough information to infer value.,5,605,612,637,622
+Supination (degrees) (>1 year),81.3,inferred,Not enough information to infer value.,5,605,612,637,622
+Pronation (degrees) (Before),75,inferred,Not enough information to infer value.,5,605,612,637,622
+Pronation (degrees) (3 months),88.8,inferred,Not enough information to infer value.,5,605,612,637,622
+Pronation (degrees) (6 months),88.8,inferred,Not enough information to infer value.,5,605,612,637,622
+Pronation (degrees) (1 year),88.8,inferred,Not enough information to infer value.,5,605,612,637,622
+Pronation (degrees) (>1 year),88.8,inferred,Not enough information to infer value.,5,605,612,637,622
+Radial Deviation (degrees) (Before),,not_found,Not enough information to infer value.,1,0,0,0,0
+Radial Deviation (degrees) (3 months),,not_found,,1,0,0,0,0
+Radial Deviation (degrees) (6 months),,not_found,,1,0,0,0,0
+Radial Deviation (degrees) (1 year),,not_found,,1,0,0,0,0
+Radial Deviation (degrees) (>1 year),,not_found,,1,0,0,0,0
+Ulnar Deviation (degrees) (Before),,not_found,,1,0,0,0,0
+Ulnar Deviation (degrees) (3 months),,not_found,,1,0,0,0,0
+Ulnar Deviation (degrees) (6 months),,not_found,,1,0,0,0,0
+Ulnar Deviation (degrees) (1 year),,not_found,,1,0,0,0,0
+Ulnar Deviation (degrees) (>1 year),,not_found,,1,0,0,0,0
+Grip Strength (percent) (Before),1.7,found,Average clinical assessment before surgery. This isn't percent but lbs.,1,194,612,235,622
+Grip Strength (percent) (3 months),,inferred,,1,0,0,0,0
+Grip Strength (percent) (6 months),,inferred,,1,0,0,0,0
+Grip Strength (percent) (1 year),,inferred,,1,0,0,0,0
+Grip Strength (percent) (>1 year),,inferred,,1,0,0,0,0
+Radial inclination (degrees) (Before),14.4,found,The average preoperative radial inclination was 14.4 degrees.,3,286,343,353,353
+Radial inclination (degrees) (After),19.4,found,The average postoperative radial inclination was 19.4 degrees.,3,605,343,634,353
+Dorsal angulation (degrees) (Before),10,found,Patient parameters are dorsal angulation >10 degrees.,1,500,747,639,757
+Dorsal angulation (degrees) (After),,inferred,,1,0,0,0,0
+Ulnar variance (millimeters) (Before),2.8,found,Mean ulnar variance changed from +2.8 mm to -0.4 mm.,1,141,573,182,583
+Ulnar variance (millimeters) (After),-0.4,found,Mean ulnar variance changed from +2.8 mm to -0.4 mm.,1,194,573,232,583
+Summary of Findings,This simplified technique of distraction corrective osteotomy after distal corrective osteotomy radius malunion results in improved clinical and radiographic outcomes for patients.,found,The summary focuses on the improved outcomes with the described surgical technique.,1,344,634,673,662

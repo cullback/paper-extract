@@ -1,0 +1,82 @@
+field_name,value,match_type,comment,page,xmin,ymin,xmax,ymax
+Citation,Henry (2007),found,NULL,1,472,352,526,361
+Research Title,IMMEDIATE MOBILISATION FOLLOWING CORRECTIVE OSTEOTOMY OF DISTAL RADIUS MALUNIONS WITH CANCELLOUS GRAFT AND VOLAR FIXED ANGLE PLATES,found,NULL,1,188,85,792,139
+Study Location,USA,found,NULL,1,651,161,677,169
+Study Design,Prospective,inferred,"The document describes a follow-up study on patients, which aligns with 'Prospective' design.",1,0,0,0,0
+Intervention Arm,Cancellous bone graft,found,NULL,1,508,260,622,269
+Fracture Characteristics,Extraarticular ,found,NULL,1,310,832,454,841
+Angulation,Dorsal,found,NULL,1,605,277,639,286
+Gap (mm),15.0,found,NULL,3,510,462,639,472
+Operative Technique,fixed angle volar plate,found,NULL,1,322,240,489,250
+Time to Osteotomy (weeks),,not_found,NULL,0,0,0,0,0
+Patient age (years),50.0,found,Mean age is explicitly stated as 50 years,1,506,464,635,474
+Pre-osteotomy sample size,58,found,NULL,1,439,813,454,822
+Post-osteotomy sample Size,19,found,NULL,1,439,851,454,860
+Time to Union (weeks),12.0,found,NULL,1,454,289,489,298
+DASH score (before),,not_found,"DASH scores are not explicitly mentioned in the document, therefore 'not found' is selected.",0,0,0,0,0
+DASH score (3 months),,not_found,"DASH scores are not explicitly mentioned in the document, therefore 'not found' is selected.",0,0,0,0,0
+DASH score (6 months),,not_found,"DASH scores are not explicitly mentioned in the document, therefore 'not found' is selected.",0,0,0,0,0
+DASH score (1 year),,not_found,"DASH scores are not explicitly mentioned in the document, therefore 'not found' is selected.",0,0,0,0,0
+DASH score (>1 year),,not_found,"DASH scores are not explicitly mentioned in the document, therefore 'not found' is selected.",0,0,0,0,0
+QuickDASH (before),,not_found,"QuickDASH scores are not mentioned in the document, therefore 'not found' is selected.",0,0,0,0,0
+QuickDASH (3 months),,not_found,Not found in document.,0,0,0,0,0
+QuickDASH (6 months),,not_found,Not found in document.,0,0,0,0,0
+QuickDASH (1 year),,not_found,Not found in document.,0,0,0,0,0
+QuickDASH (>1 year),,not_found,Not found in document.,0,0,0,0,0
+PRWE (before),,not_found,Not found in document.,0,0,0,0,0
+PRWE (3 months),,not_found,Not found in document.,0,0,0,0,0
+PRWE (6 months),,not_found,Not found in document.,0,0,0,0,0
+PRWE (1 year),,not_found,Not found in document.,0,0,0,0,0
+PRWE (>1 year),,not_found,Not found in document.,0,0,0,0,0
+Visual Analogue Scale (VAS) (Before),,not_found,Not found in document.,0,0,0,0,0
+Visual Analogue Scale (VAS) (3 months),,not_found,Not found in document.,0,0,0,0,0
+Visual Analogue Scale (VAS) (6 months),,not_found,Not found in document.,0,0,0,0,0
+Visual Analogue Scale (VAS) (1 year),,not_found,Not found in document.,0,0,0,0,0
+Visual Analogue Scale (VAS) (>1 year),,not_found,Not found in document.,0,0,0,0,0
+Mayo Wrist Score (Before),,not_found,Not found in document.,0,0,0,0,0
+Mayo Wrist Score (3 months),,not_found,Not found in document.,0,0,0,0,0
+Mayo Wrist Score (6 months),,not_found,Not found in document.,0,0,0,0,0
+Mayo Wrist Score (1 year),,not_found,Not found in document.,0,0,0,0,0
+Mayo Wrist Score (>1 year),,not_found,Not found in document.,0,0,0,0,0
+Wrist Flexion (degrees) (Before),28,found,Extracted value from Table 1,3,453,663,566,673
+Wrist Flexion (degrees) (3 months),58,inferred,"Improvement is mentioned generally, but no specific 3 month data found. Inferred from >1 year data.",3,679,797,702,806
+Wrist Flexion (degrees) (6 months),58,inferred,"Improvement is mentioned generally, but no specific 6 month data found. Inferred from >1 year data.",3,679,797,702,806
+Wrist Flexion (degrees) (1 year),58,inferred,"Data for \""1 year\"" not explicitly found, assuming it falls under \"">1 year\"" results if that data exists.",3,679,797,702,806
+Wrist Flexion (degrees) (>1 year),58,found,,3,679,797,702,806
+Wrist Extension (degrees) (Before),43,found,,3,605,810,627,819
+Wrist Extension (degrees) (3 months),62,inferred,"Improvement is mentioned generally, but no specific 3 month data found. Inferred from >1 year data.",3,679,810,702,819
+Wrist Extension (degrees) (6 months),62,inferred,"Improvement is mentioned generally, but no specific 6 month data found. Inferred from >1 year data.",3,679,810,702,819
+Wrist Extension (degrees) (1 year),62,inferred,"Data for \""1 year\"" not explicitly found, assuming it falls under \"">1 year\"" results if that data exists.",3,679,810,702,819
+Wrist Extension (degrees) (>1 year),62,found,,3,679,810,702,819
+Supination (degrees) (Before),46,found,,3,605,823,627,832
+Supination (degrees) (3 months),81,inferred,"Improvement is mentioned generally, but no specific 3 month data found. Inferred from >1 year Supination.",3,679,823,702,832
+Supination (degrees) (6 months),81,inferred,"Improvement is mentioned generally, but no specific 6 month data found. Inferred from >1 year Supination.",3,679,823,702,832
+Supination (degrees) (1 year),81,inferred,"Data for \""1 year\"" not explicitly found, assuming it falls under \"">1 year\"" results if that data exists.",3,679,823,702,832
+Supination (degrees) (>1 year),81,found,,3,679,823,702,832
+Pronation (degrees) (Before),46,found,,3,605,836,627,845
+Pronation (degrees) (3 months),78,inferred,"Improvement is mentioned generally, but no specific 3 month data found. Inferred from >1 year data.",3,679,836,702,845
+Pronation (degrees) (6 months),78,inferred,"Improvement is mentioned generally, but no specific 6 month data found. Inferred from >1 year data.",3,679,836,702,845
+Pronation (degrees) (1 year),78,inferred,"Data for \""1 year\"" not explicitly found, assuming it falls under \"">1 year\"" results if that data exists.",3,679,836,702,845
+Pronation (degrees) (>1 year),78,found,,3,679,836,702,845
+Radial Deviation (degrees) (Before),,not_found,"No specific Radial Deviation data found, but Radial Inclination is a related concept. Could be inferred.",3,0,0,0,0
+Radial Deviation (degrees) (3 months),,not_found,,0,0,0,0,0
+Radial Deviation (degrees) (6 months),,not_found,,0,0,0,0,0
+Radial Deviation (degrees) (1 year),,not_found,,0,0,0,0,0
+Radial Deviation (degrees) (>1 year),,not_found,,0,0,0,0,0
+Ulnar Deviation (degrees) (Before),,not_found,,0,0,0,0,0
+Ulnar Deviation (degrees) (3 months),,not_found,,0,0,0,0,0
+Ulnar Deviation (degrees) (6 months),,not_found,,0,0,0,0,0
+Ulnar Deviation (degrees) (1 year),,not_found,,0,0,0,0,0
+Ulnar Deviation (degrees) (>1 year),,not_found,,0,0,0,0,0
+Grip Strength (percent) (Before),33.0,inferred,,3,612,863,639,875
+Grip Strength (percent) (3 months),,not_found,,0,0,0,0,0
+Grip Strength (percent) (6 months),,not_found,,0,0,0,0,0
+Grip Strength (percent) (1 year),,not_found,,0,0,0,0,0
+Grip Strength (percent) (>1 year),79.0,inferred,,3,662,863,692,875
+Radial inclination (degrees) (Before),11.0,inferred,,3,617,777,639,789
+Radial inclination (degrees) (After),22.0,inferred,,3,669,777,692,789
+Dorsal angulation (degrees) (Before),36.0,inferred,,4,0,0,0,0
+Dorsal angulation (degrees) (After),10.0,inferred,,4,0,0,0,0
+Ulnar variance (millimeters) (Before),7.0,inferred,,3,619,789,639,801
+Ulnar variance (millimeters) (After),0.0,inferred,,3,673,789,692,801
+Summary of Findings,This study shows that corrective osteotomy of distal radius malunions with early mobilization effectively restores normal anatomy and functional range of motion and strength.,inferred,The summary is inferred from the document's abstract and introductory sections.,1,235,743,348,780

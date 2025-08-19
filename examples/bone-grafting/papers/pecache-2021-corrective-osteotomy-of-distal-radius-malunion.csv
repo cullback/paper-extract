@@ -1,0 +1,82 @@
+field_name,value,match_type,comment,page,xmin,ymin,xmax,ymax
+Citation,Pecache et al. (2020),found,NULL,1,221,172,395,181
+Research Title,Corrective Osteotomy of Distal Radius Malunion Using a Rectangular-shaped Iliac Bone Graft and Volar Plating,found,NULL,1,218,139,776,169
+Study Location,Philippines,found,NULL,1,361,869,401,878
+Study Design,Cohort Study,inferred,NULL,1,0,0,0,0
+Intervention Arm,iliac bone graft,found,NULL,1,284,362,421,371
+Fracture Characteristics,extra-articular,found,NULL,1,194,447,331,456
+Angulation,Dorsal,inferred,NULL,4,639,668,673,677
+Gap (mm),,not_found,NULL,0,0,0,0,0
+Operative Technique,Volar Plating,found,NULL,1,599,160,692,169
+Time to Osteotomy (weeks),,not_found,NULL,0,0,0,0,0
+Patient age (years),,not_found,NULL,0,0,0,0,0
+Pre-osteotomy sample size,13,found,NULL,4,622,233,639,242
+Post-osteotomy sample Size,,not_found,NULL,0,0,0,0,0
+Time to Union (weeks),,not_found,NULL,0,0,0,0,0
+DASH score (before),,not_found,NULL,0,0,0,0,0
+DASH score (3 months),,not_found,NULL,0,0,0,0,0
+DASH score (6 months),,not_found,NULL,0,0,0,0,0
+DASH score (1 year),,not_found,NULL,0,0,0,0,0
+DASH score (>1 year),,not_found,NULL,0,0,0,0,0
+QuickDASH (before),,not_found,NULL,0,0,0,0,0
+QuickDASH (3 months),,not_found,,4,0,0,0,0
+QuickDASH (6 months),,not_found,,4,0,0,0,0
+QuickDASH (1 year),,not_found,,4,0,0,0,0
+QuickDASH (>1 year),,not_found,,4,0,0,0,0
+PRWE (before),,not_found,,4,0,0,0,0
+PRWE (3 months),,not_found,,4,0,0,0,0
+PRWE (6 months),,not_found,,4,0,0,0,0
+PRWE (1 year),,not_found,,4,0,0,0,0
+PRWE (>1 year),,not_found,,4,0,0,0,0
+Visual Analogue Scale (VAS) (Before),,not_found,,4,0,0,0,0
+Visual Analogue Scale (VAS) (3 months),,not_found,,4,0,0,0,0
+Visual Analogue Scale (VAS) (6 months),,not_found,,4,0,0,0,0
+Visual Analogue Scale (VAS) (1 year),,not_found,,4,0,0,0,0
+Visual Analogue Scale (VAS) (>1 year),,not_found,,4,0,0,0,0
+Mayo Wrist Score (Before),,not_found,,4,0,0,0,0
+Mayo Wrist Score (3 months),,not_found,,4,0,0,0,0
+Mayo Wrist Score (6 months),,not_found,,4,0,0,0,0
+Mayo Wrist Score (1 year),,not_found,,4,0,0,0,0
+Mayo Wrist Score (>1 year),,not_found,,4,0,0,0,0
+Wrist Flexion (degrees) (Before),,not_found,,4,0,0,0,0
+Wrist Flexion (degrees) (3 months),,not_found,Data not found in the provided document,0,0,0,0,0
+Wrist Flexion (degrees) (6 months),,not_found,Data not found in the provided document,0,0,0,0,0
+Wrist Flexion (degrees) (1 year),,not_found,Data not found in the provided document,0,0,0,0,0
+Wrist Flexion (degrees) (>1 year),,not_found,Data not found in the provided document,0,0,0,0,0
+Wrist Extension (degrees) (Before),,not_found,Data not found in the provided document,0,0,0,0,0
+Wrist Extension (degrees) (3 months),,not_found,Data not found in the provided document,0,0,0,0,0
+Wrist Extension (degrees) (6 months),,not_found,Data not found in the provided document,0,0,0,0,0
+Wrist Extension (degrees) (1 year),,not_found,Data not found in the provided document,0,0,0,0,0
+Wrist Extension (degrees) (>1 year),,not_found,Data not found in the provided document,0,0,0,0,0
+Supination (degrees) (Before),,not_found,Data not found in the provided document,0,0,0,0,0
+Supination (degrees) (3 months),,not_found,Data not found in the provided document,0,0,0,0,0
+Supination (degrees) (6 months),,not_found,Data not found in the provided document,0,0,0,0,0
+Supination (degrees) (1 year),,not_found,Data not found in the provided document,0,0,0,0,0
+Supination (degrees) (>1 year),,not_found,Data not found in the provided document,0,0,0,0,0
+Pronation (degrees) (Before),,not_found,Data not found in the provided document,0,0,0,0,0
+Pronation (degrees) (3 months),,not_found,Data not found in the provided document,0,0,0,0,0
+Pronation (degrees) (6 months),,not_found,Data not found in the provided document,0,0,0,0,0
+Pronation (degrees) (1 year),,not_found,Data not found in the provided document,0,0,0,0,0
+Pronation (degrees) (>1 year),,not_found,Data not found in the provided document,0,0,0,0,0
+Radial Deviation (degrees) (Before),,not_found,Data not found in the provided document,0,0,0,0,0
+Radial Deviation (degrees) (3 months),,not_found,,0,0,0,0,0
+Radial Deviation (degrees) (6 months),,not_found,,0,0,0,0,0
+Radial Deviation (degrees) (1 year),,not_found,,0,0,0,0,0
+Radial Deviation (degrees) (>1 year),,not_found,,0,0,0,0,0
+Ulnar Deviation (degrees) (Before),,not_found,,0,0,0,0,0
+Ulnar Deviation (degrees) (3 months),,not_found,,0,0,0,0,0
+Ulnar Deviation (degrees) (6 months),,not_found,,0,0,0,0,0
+Ulnar Deviation (degrees) (1 year),,not_found,,0,0,0,0,0
+Ulnar Deviation (degrees) (>1 year),,not_found,,0,0,0,0,0
+Grip Strength (percent) (Before),,not_found,,0,0,0,0,0
+Grip Strength (percent) (3 months),,not_found,,0,0,0,0,0
+Grip Strength (percent) (6 months),,not_found,,0,0,0,0,0
+Grip Strength (percent) (1 year),,not_found,,0,0,0,0,0
+Grip Strength (percent) (>1 year),,not_found,,0,0,0,0,0
+Radial inclination (degrees) (Before),11.8,inferred,"Inferred from the mean of 'Pre' values in Table 1, ranging from 11% to 23%.",4,254.4,619.9,269.4,627.9
+Radial inclination (degrees) (After),19.3,inferred,Inferred from the mean of 'Post' values in Table 1.,4,287.3,619.9,302.3,627.9
+Dorsal angulation (degrees) (Before),-16.9,inferred,Inferred from 'palmar tilt' and the 'Pre' values in Table 1.,4,624.1,619.9,639.1,627.9
+Dorsal angulation (degrees) (After),-12.2,inferred,Inferred from 'palmar tilt' and the 'Post' values in Table 1.,4,624.9,619.9,639.9,627.9
+Ulnar variance (millimeters) (Before),4.1,inferred,Inferred from the mean of 'Pre' values for 'Ulnar Variance' in Table 1.,4,432.8,619.9,447.8,627.9
+Ulnar variance (millimeters) (After),0.5,inferred,Inferred from the mean of 'Post' values for 'Ulnar Variance' in Table 1.,4,466,619.9,481,627.9
+Summary of Findings,"This technique simplifies osteotomies for extra-articular or minimally displaced articular distal radius malunion, restoring wrist parameters and achieving good union rates. It uses a tricortical iliac bone graft for structural support.",found,The text details a surgical technique for malunion correction that results in restored wrist parameters and good union rates.,1,196.883,331.425,489.143,425.405

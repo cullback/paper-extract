@@ -1,0 +1,82 @@
+field_name,value,match_type,comment,page,xmin,ymin,xmax,ymax
+Citation,Tarallo et al. (2014),found,,1,188,272,472,280
+Research Title,Malunited extra-articular distal radius fractures: corrective osteotomies using volar locking plate,found,,1,188,141,718,172
+Study Location,Italy,found,,1,393,826,420,834
+Study Design,Therapeutic IV,found,,1,622,457,709,465
+Intervention Arm,Volar locking plate without additional bone graft,inferred,,1,188,535,468,560
+Fracture Characteristics,extra-articular,found,,1,305,522,395,530
+Angulation,dorsal,inferred,,1,516,498,639,509
+Gap (mm),,inferred,,1,0,0,0,0
+Operative Technique,Volar plating,found,,1,599,164,692,172
+Time to Osteotomy (weeks),,inferred,,1,0,0,0,0
+Patient age (years),40.0,found,,2,514,716,533,724
+Pre-osteotomy sample size,20,found,,2,535,710,551,718
+Post-osteotomy sample Size,,inferred,,1,0,0,0,0
+Time to Union (weeks),16.0,found,,4,353,699,371,707
+DASH score (before),54.0,found,,1,352,654,372,662
+DASH score (3 months),,not_found,,1,0,0,0,0
+DASH score (6 months),,not_found,,1,0,0,0,0
+DASH score (1 year),,not_found,,1,0,0,0,0
+DASH score (>1 year),,not_found,,1,0,0,0,0
+QuickDASH (before),,not_found,,1,0,0,0,0
+QuickDASH (3 months),,not_found,,1,0,0,0,0
+QuickDASH (6 months),,not_found,,1,0,0,0,0
+QuickDASH (1 year),,not_found,,1,0,0,0,0
+QuickDASH (>1 year),25.0,inferred,,4,593,812,639,820
+PRWE (before),,not_found,,1,0,0,0,0
+PRWE (3 months),,not_found,,1,0,0,0,0
+PRWE (6 months),,not_found,,1,0,0,0,0
+PRWE (1 year),,not_found,,1,0,0,0,0
+PRWE (>1 year),,not_found,,1,0,0,0,0
+Visual Analogue Scale (VAS) (Before),1.1,found,,3,595,372,622,381
+Visual Analogue Scale (VAS) (3 months),0.3,found,,3,596,381,622,390
+Visual Analogue Scale (VAS) (6 months),,not_found,,1,0,0,0,0
+Visual Analogue Scale (VAS) (1 year),,not_found,,1,0,0,0,0
+Visual Analogue Scale (VAS) (>1 year),,not_found,,1,0,0,0,0
+Mayo Wrist Score (Before),46.9,found,,3,673,372,709,381
+Mayo Wrist Score (3 months),,not_found,,1,0,0,0,0
+Mayo Wrist Score (6 months),,not_found,,1,0,0,0,0
+Mayo Wrist Score (1 year),,not_found,,1,0,0,0,0
+Mayo Wrist Score (>1 year),,not_found,,1,0,0,0,0
+Wrist Flexion (degrees) (Before),,not_found,,1,0,0,0,0
+Wrist Flexion (degrees) (3 months),70.3,inferred,NULL,3,442.25,639.14,476.59,648.24
+Wrist Flexion (degrees) (6 months),120.0,inferred,NULL,1,427.67,77.46,479.91,87.21
+Wrist Flexion (degrees) (1 year),70.3,inferred,NULL,3,442.25,639.14,476.59,648.24
+Wrist Flexion (degrees) (>1 year),70.3,inferred,NULL,3,442.25,639.14,476.59,648.24
+Wrist Extension (degrees) (Before),75.3,found,NULL,3,495.74,612.94,530.08,622.04
+Wrist Extension (degrees) (3 months),84.0,inferred,NULL,3,495.74,639.14,530.08,648.24
+Wrist Extension (degrees) (6 months),84.0,inferred,NULL,3,495.74,639.14,530.08,648.24
+Wrist Extension (degrees) (1 year),84.0,inferred,NULL,3,495.74,639.14,530.08,648.24
+Wrist Extension (degrees) (>1 year),84.0,inferred,NULL,3,495.74,639.14,530.08,648.24
+Supination (degrees) (Before),44.8,found,NULL,3,549.22,612.94,583.56,622.04
+Supination (degrees) (3 months),60.3,inferred,NULL,3,549.22,639.14,583.56,648.24
+Supination (degrees) (6 months),60.3,inferred,NULL,3,549.22,639.14,583.56,648.24
+Supination (degrees) (1 year),60.3,inferred,NULL,3,549.22,639.14,583.56,648.24
+Supination (degrees) (>1 year),60.3,inferred,NULL,3,549.22,639.14,583.56,648.24
+Pronation (degrees) (Before),16.0,found,NULL,3,605.12,612.94,639.46,622.04
+Pronation (degrees) (3 months),79.8,inferred,NULL,3,605.12,639.14,639.46,648.24
+Pronation (degrees) (6 months),79.8,inferred,NULL,3,605.12,639.14,639.46,648.24
+Pronation (degrees) (1 year),79.8,inferred,NULL,3,605.12,639.14,639.46,648.24
+Pronation (degrees) (>1 year),79.8,inferred,NULL,3,605.12,639.14,639.46,648.24
+Radial Deviation (degrees) (Before),,not_found,NULL,3,0,0,0,0
+Radial Deviation (degrees) (3 months),,not_found,,0,0,0,0,0
+Radial Deviation (degrees) (6 months),,not_found,,0,0,0,0,0
+Radial Deviation (degrees) (1 year),,not_found,,0,0,0,0,0
+Radial Deviation (degrees) (>1 year),,not_found,,0,0,0,0,0
+Ulnar Deviation (degrees) (Before),,not_found,,0,0,0,0,0
+Ulnar Deviation (degrees) (3 months),,not_found,,0,0,0,0,0
+Ulnar Deviation (degrees) (6 months),,not_found,,0,0,0,0,0
+Ulnar Deviation (degrees) (1 year),,not_found,,0,0,0,0,0
+Ulnar Deviation (degrees) (>1 year),,not_found,,0,0,0,0,0
+Grip Strength (percent) (Before),,inferred,"Table has 'Mean (SD)' of 10.9 (2.9) kg, which is a measured value",3,0,0,0,0
+Grip Strength (percent) (3 months),,not_found,,0,0,0,0,0
+Grip Strength (percent) (6 months),,not_found,,0,0,0,0,0
+Grip Strength (percent) (1 year),,not_found,,0,0,0,0,0
+Grip Strength (percent) (>1 year),,not_found,,0,0,0,0,0
+Radial inclination (degrees) (Before),29.0,found,Found in table 1 as 29.0 degrees,3,822,178.4,841.5,186.2
+Radial inclination (degrees) (After),22.3,found,Found in table 1 as 22.3 degrees,3,822,196.8,841.5,204.6
+Dorsal angulation (degrees) (Before),-23.0,inferred,Inferred from 'Palmar tilt improved from an average of 23° to 11°.',1,0,0,0,0
+Dorsal angulation (degrees) (After),-11.0,inferred,Inferred from 'Palmar tilt improved from an average of 23° to 11°.',1,0,0,0,0
+Ulnar variance (millimeters) (Before),3.6,found,Found in table 1 as 3.6 mm.,3,863.6,178.4,878.7,186.2
+Ulnar variance (millimeters) (After),0.9,found,Found in table 1 as 0.9 mm.,3,863.6,196.8,878.7,204.6
+Summary of Findings,"This study demonstrates that the volar approach with a locking plate, without bone grafting, effectively addresses symptomatic and severe deformities of the distal radius.",inferred,Inferred from the abstract and results sections.,1,0,0,0,0

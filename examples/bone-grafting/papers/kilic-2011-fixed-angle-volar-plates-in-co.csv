@@ -1,0 +1,82 @@
+field_name,value,match_type,comment,page,xmin,ymin,xmax,ymax
+Citation,KILIÇ et al. (2011),found,,1,230.13,226.79,269.43,236.42
+Research Title,Fixed-angle volar plates in corrective osteotomies of malunions of dorsally angulated distal radius fractures,found,,1,185.73,160.8,766.19,196.48
+Study Location,Turkey,found,,1,477.56,276.44,579.52,286.07
+Study Design,Prospective,found,,1,331.42,374.65,397.64,384.28
+Intervention Arm,Autograft,found,autograft bone graft used,3,639.88,520.78,818.06,530.41
+Fracture Characteristics,Malunion,found,,1,331.42,361.76,404.99,371.39
+Angulation,Dorsal,found,dorsally angulated,1,331.42,170.8,639.84,182.26
+Gap (mm),,not_found,Gap is not mentioned for length; only positive ulnar variance.,2,0,0,0,0
+Operative Technique,Volar plating,found,,1,472.95,722.56,587.75,732.19
+Time to Osteotomy (weeks),17.6,found,normalized from months to weeks,1,395.77,411.26,425.26,420.89
+Patient age (years),41,found,,1,395.77,384.43,427.67,394.06
+Pre-osteotomy sample size,17,found,,1,344.96,374.65,354.19,384.28
+Post-osteotomy sample Size,17,found,The total number of patients at follow-up.,1,344.24,624.28,353.48,633.91
+Time to Union (weeks),12.2,found,,1,490.37,550.18,519.86,559.81
+DASH score (before),26.5,found,The Q-DASH questionnaire was used.,1,677.22,652.56,713.88,662.19
+DASH score (3 months),,not_found,No DASH score found for 3 months.,1,0,0,0,0
+DASH score (6 months),,not_found,No DASH score found for 6 months.,1,0,0,0,0
+DASH score (1 year),,not_found,No DASH score found for 1 year.,1,0,0,0,0
+DASH score (>1 year),5.7,found,Patient follow-up was an average of 20.4 months (87 weeks).,1,677.29,662.85,711.23,672.48
+QuickDASH (before),,found,Q-DASH is a quick form of DASH.,1,223.13,524.25,516.48,533.88
+QuickDASH (3 months),,not_found,,1,0,0,0,0
+QuickDASH (6 months),,not_found,,1,0,0,0,0
+QuickDASH (1 year),,not_found,,1,0,0,0,0
+QuickDASH (>1 year),,not_found,,1,0,0,0,0
+PRWE (before),,not_found,,1,0,0,0,0
+PRWE (3 months),,not_found,,1,0,0,0,0
+PRWE (6 months),,not_found,,1,0,0,0,0
+PRWE (1 year),,not_found,,1,0,0,0,0
+PRWE (>1 year),,not_found,,1,0,0,0,0
+Visual Analogue Scale (VAS) (Before),,not_found,,1,0,0,0,0
+Visual Analogue Scale (VAS) (3 months),,not_found,,1,0,0,0,0
+Visual Analogue Scale (VAS) (6 months),,not_found,,1,0,0,0,0
+Visual Analogue Scale (VAS) (1 year),,not_found,,1,0,0,0,0
+Visual Analogue Scale (VAS) (>1 year),,not_found,,1,0,0,0,0
+Mayo Wrist Score (Before),,not_found,,1,0,0,0,0
+Mayo Wrist Score (3 months),,not_found,,1,0,0,0,0
+Mayo Wrist Score (6 months),,not_found,,1,0,0,0,0
+Mayo Wrist Score (1 year),,not_found,,1,0,0,0,0
+Mayo Wrist Score (>1 year),,not_found,,1,0,0,0,0
+Wrist Flexion (degrees) (Before),42.0,found,"Wrist flexion data is available in degrees, no unit conversion needed.",6,178.6,154.2,236.7,164.7
+Wrist Flexion (degrees) (3 months),,not_found,,0,0,0,0,0
+Wrist Flexion (degrees) (6 months),,not_found,,0,0,0,0,0
+Wrist Flexion (degrees) (1 year),51.0,inferred,"Inferred from 'Postoperative mean±SD', which represents latest follow-up.",6,451,151,476,159
+Wrist Flexion (degrees) (>1 year),51.0,inferred,"Inferred from 'Postoperative mean±SD', which represents latest follow-up.",6,451,151,476,159
+Wrist Extension (degrees) (Before),58.8,found,Extracted from 'Preoperative mean±SD' row from table 2.,6,378,162,403,170
+Wrist Extension (degrees) (3 months),,not_found,,0,0,0,0,0
+Wrist Extension (degrees) (6 months),,not_found,,0,0,0,0,0
+Wrist Extension (degrees) (1 year),55.9,inferred,"Inferred from 'Postoperative mean±SD', which represents latest follow-up.",6,451,162,476,170
+Wrist Extension (degrees) (>1 year),55.9,inferred,"Inferred from 'Postoperative mean±SD', which represents latest follow-up.",6,451,162,476,170
+Supination (degrees) (Before),58.2,found,Extracted from 'Preoperative mean±SD' row from table 2.,6,378,185,403,193
+Supination (degrees) (3 months),,not_found,,0,0,0,0,0
+Supination (degrees) (6 months),,not_found,,0,0,0,0,0
+Supination (degrees) (1 year),78.2,inferred,"Inferred from 'Postoperative mean±SD', which represents latest follow-up.",6,451,185,476,193
+Supination (degrees) (>1 year),78.2,inferred,"Inferred from 'Postoperative mean±SD', which represents latest follow-up.",6,451,185,476,193
+Pronation (degrees) (Before),60.5,found,Extracted from 'Preoperative mean±SD' row from table 2.,6,378,174,403,182
+Pronation (degrees) (3 months),,not_found,,0,0,0,0,0
+Pronation (degrees) (6 months),,not_found,,0,0,0,0,0
+Pronation (degrees) (1 year),78.5,inferred,"Inferred from 'Postoperative mean±SD', which represents latest follow-up.",6,451,174,476,182
+Pronation (degrees) (>1 year),78.5,inferred,"Inferred from 'Postoperative mean±SD', which represents latest follow-up.",6,451,174,476,182
+Radial Deviation (degrees) (Before),6.0,found,Extracted from 'Preoperative mean±SD' row from table 2.,6,378,196,393,204
+Radial Deviation (degrees) (3 months),,not_found,,0,0,0,0,0
+Radial Deviation (degrees) (6 months),,not_found,,0,0,0,0,0
+Radial Deviation (degrees) (1 year),6.3,inferred,Inferred from 'Radial deviaton (°)'.,6,403,249,435,257
+Radial Deviation (degrees) (>1 year),,not_found,,0,0,0,0,0
+Ulnar Deviation (degrees) (Before),16.0,inferred,Inferred from 'Ulnar deviation (°)'.,6,321,261,353,269
+Ulnar Deviation (degrees) (3 months),,not_found,,0,0,0,0,0
+Ulnar Deviation (degrees) (6 months),,not_found,,0,0,0,0,0
+Ulnar Deviation (degrees) (1 year),21.0,inferred,Inferred from 'Ulnar deviation (°)'.,6,403,261,435,269
+Ulnar Deviation (degrees) (>1 year),,not_found,,0,0,0,0,0
+Grip Strength (percent) (Before),59.7,found,Inferred from 'Grip strength (kg)' (preoperative) and 'of the opposite side strength',1,480,674,512,682
+Grip Strength (percent) (3 months),,not_found,,0,0,0,0,0
+Grip Strength (percent) (6 months),,not_found,,0,0,0,0,0
+Grip Strength (percent) (1 year),83.2,inferred,Inferred from 'Grip strength (kg)' (final controls). Original = 24.4 kg.,4,686,419,718,427
+Grip Strength (percent) (>1 year),,not_found,,0,0,0,0,0
+Radial inclination (degrees) (Before),18.4,found,Inferred from 'Radial inclination angle (°)' (preoperative).,5,317,933,353,941
+Radial inclination (degrees) (After),22.5,found,Inferred from 'Radial inclination angle (°)' (postoperative).,5,418,933,454,941
+Dorsal angulation (degrees) (Before),,not_found,,1,0,0,0,0
+Dorsal angulation (degrees) (After),,not_found,,1,0,0,0,0
+Ulnar variance (millimeters) (Before),12.1,found,Inferred from 'Ulnar variance (+) (mm)' (preoperative).,5,317,910,353,918
+Ulnar variance (millimeters) (After),1.0,found,Inferred from 'Ulnar variance (+) (mm)' (postoperative).,5,418,910,454,918
+Summary of Findings,Fixed-angle volar plates provide stable fixation for corrective osteotomies of the distal radius and might be a safer alternative to conventional fixation methods.,found,The summary of the findings about fixed-angle volar plates correcting malunions of dorsally angulated distal radius fractures. The study found the plates provide a stable fixation and may be a safer alternative to conventional fixation methods.,1,251,688,759,718

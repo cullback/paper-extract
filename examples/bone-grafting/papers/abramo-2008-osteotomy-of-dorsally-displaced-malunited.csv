@@ -1,0 +1,82 @@
+field_name,value,match_type,comment,page,xmin,ymin,xmax,ymax
+Citation,Abramo et al. (2008),found,As seen at the top of the article,1,235,402,450,412
+Research Title,Osteotomy of dorsally displaced malunited fractures of the distal radius: No loss of radiographic correction during healing with a minimally invasive fixation technique and an injectable bone substitute,found,As seen at the top of the article,1,232,204,724,315
+Study Location,Sweden,found,"The study was conducted in Lund, Sweden.",2,240,286,393,297
+Study Design,Prospective cohort,inferred,The study included patients prospectively followed for 1 year.,3,240,507,488,517
+Intervention Arm,Injectable bone substitute,found,NULL,2,516,184,639,194
+Fracture Characteristics,Dorsally displaced malunited fractures of the distal radius,found,NULL,2,232,141,724,169
+Angulation,Dorsal,inferred,NULL,2,232,171,393,182
+Gap (mm),,inferred,NULL,1,0,0,0,0
+Operative Technique,Minimally invasive fixation,found,NULL,2,516,172,693,194
+Time to Osteotomy (weeks),64.0,found,NULL,3,444,612,464,622
+Patient age (years),52.0,found,As seen in the age of the patients,3,353,587,371,597
+Pre-osteotomy sample size,25.0,found,NULL,3,296,524,314,535
+Post-osteotomy sample Size,,inferred,NULL,1,0,0,0,0
+Time to Union (weeks),52.0,inferred,"All osteotomies healed within one year, one exception.",5,673,579,756,597
+DASH score (before),36.0,found,NULL,6,228,444,239,455
+DASH score (3 months),25.0,found,NULL,6,296,444,307,455
+DASH score (6 months),,inferred,NULL,1,0,0,0,0
+DASH score (1 year),23.0,found,NULL,6,361,444,372,455
+DASH score (>1 year),,inferred,NULL,1,0,0,0,0
+QuickDASH (before),,not_found,NULL,1,0,0,0,0
+QuickDASH (3 months),25.0,inferred,NULL,4,0,0,0,0
+QuickDASH (6 months),,not_found,NULL,0,0,0,0,0
+QuickDASH (1 year),23.0,inferred,NULL,4,0,0,0,0
+QuickDASH (>1 year),23.0,inferred,NULL,4,0,0,0,0
+PRWE (before),,not_found,NULL,0,0,0,0,0
+PRWE (3 months),,not_found,NULL,0,0,0,0,0
+PRWE (6 months),,not_found,NULL,0,0,0,0,0
+PRWE (1 year),,not_found,NULL,0,0,0,0,0
+PRWE (>1 year),,not_found,NULL,0,0,0,0,0
+Visual Analogue Scale (VAS) (Before),6.3,inferred,NULL,4,0,0,0,0
+Visual Analogue Scale (VAS) (3 months),4.5,inferred,NULL,4,0,0,0,0
+Visual Analogue Scale (VAS) (6 months),,not_found,NULL,0,0,0,0,0
+Visual Analogue Scale (VAS) (1 year),3.8,inferred,NULL,4,0,0,0,0
+Visual Analogue Scale (VAS) (>1 year),3.7,inferred,NULL,4,0,0,0,0
+Mayo Wrist Score (Before),,not_found,NULL,0,0,0,0,0
+Mayo Wrist Score (3 months),,not_found,NULL,0,0,0,0,0
+Mayo Wrist Score (6 months),,not_found,NULL,0,0,0,0,0
+Mayo Wrist Score (1 year),,not_found,NULL,0,0,0,0,0
+Mayo Wrist Score (>1 year),,not_found,NULL,0,0,0,0,0
+Wrist Flexion (degrees) (Before),102.0,inferred,Combined with extension: flexion/extension before was 102 degrees.,2,0,0,0,0
+Wrist Flexion (degrees) (3 months),,not_found,Not mentioned in the document and cannot be inferred.,6,0,0,0,0
+Wrist Flexion (degrees) (6 months),,not_found,Not mentioned in the document and cannot be inferred.,6,0,0,0,0
+Wrist Flexion (degrees) (1 year),120.0,found,"From the ""1 year a mean (SD)"" row for Extension/flexion (degrees)",6,431,131,454,139
+Wrist Flexion (degrees) (>1 year),120.0,inferred,The value for 1 year is used as it is the final follow-up,6,431,131,454,139
+Wrist Extension (degrees) (Before),103.0,found,"From the ""Preoperatively mean (SD)"" row for Extension/flexion (degrees)",6,349,131,371,139
+Wrist Extension (degrees) (3 months),,not_found,Not mentioned in the document and cannot be inferred.,6,0,0,0,0
+Wrist Extension (degrees) (6 months),,not_found,Not mentioned in the document and cannot be inferred.,6,0,0,0,0
+Wrist Extension (degrees) (1 year),120.0,found,"From the ""1 year a mean (SD)"" row for Extension/flexion (degrees)",6,431,131,454,139
+Wrist Extension (degrees) (>1 year),120.0,inferred,The value for 1 year is used as it is the final follow-up,6,431,131,454,139
+Supination (degrees) (Before),,not_found,Not mentioned in the document and cannot be inferred.,6,0,0,0,0
+Supination (degrees) (3 months),,not_found,Not mentioned in the document and cannot be inferred.,6,0,0,0,0
+Supination (degrees) (6 months),,not_found,Not mentioned in the document and cannot be inferred.,6,0,0,0,0
+Supination (degrees) (1 year),,not_found,Not mentioned in the document and cannot be inferred.,6,0,0,0,0
+Supination (degrees) (>1 year),,not_found,Not mentioned in the document and cannot be inferred.,6,0,0,0,0
+Pronation (degrees) (Before),,not_found,Not mentioned in the document and cannot be inferred.,6,0,0,0,0
+Pronation (degrees) (3 months),,not_found,Not mentioned in the document and cannot be inferred.,6,0,0,0,0
+Pronation (degrees) (6 months),,not_found,Not mentioned in the document and cannot be inferred.,6,0,0,0,0
+Pronation (degrees) (1 year),,not_found,Not mentioned in the document and cannot be inferred.,6,0,0,0,0
+Pronation (degrees) (>1 year),,not_found,Not mentioned in the document and cannot be inferred.,6,0,0,0,0
+Radial Deviation (degrees) (Before),32.0,found,"From ""Preoperatively mean (SD)"" for Radio-ulnar deviation",6,349,119,371,128
+Radial Deviation (degrees) (3 months),,not_found,NULL,6,0,0,0,0
+Radial Deviation (degrees) (6 months),,not_found,NULL,6,0,0,0,0
+Radial Deviation (degrees) (1 year),43,found,NULL,6,662,273,679,283
+Radial Deviation (degrees) (>1 year),,not_found,NULL,6,0,0,0,0
+Ulnar Deviation (degrees) (Before),32,found,NULL,6,542,273,560,283
+Ulnar Deviation (degrees) (3 months),,not_found,NULL,6,0,0,0,0
+Ulnar Deviation (degrees) (6 months),,not_found,NULL,6,0,0,0,0
+Ulnar Deviation (degrees) (1 year),43,found,NULL,6,662,273,679,283
+Ulnar Deviation (degrees) (>1 year),,not_found,NULL,6,0,0,0,0
+Grip Strength (percent) (Before),62,found,NULL,6,542,303,560,313
+Grip Strength (percent) (3 months),,not_found,NULL,6,0,0,0,0
+Grip Strength (percent) (6 months),,not_found,NULL,6,0,0,0,0
+Grip Strength (percent) (1 year),82,found,NULL,6,662,303,679,313
+Grip Strength (percent) (>1 year),,not_found,NULL,6,0,0,0,0
+Radial inclination (degrees) (Before),20,found,NULL,5,454,572,483,582
+Radial inclination (degrees) (After),21,found,NULL,5,546,572,558,582
+Dorsal angulation (degrees) (Before),17,found,NULL,5,454,587,483,597
+Dorsal angulation (degrees) (After),0,found,NULL,5,606,587,639,597
+Ulnar variance (millimeters) (Before),4,found,NULL,5,454,557,483,567
+Ulnar variance (millimeters) (After),2.6,found,NULL,5,546,557,558,567
+Summary of Findings,Osteotomy effectively enhances motion and strength in malunited distal radial fractures. Bone substitute avoids donor site issues. Radiographic correction maintained.,inferred,Inferred from the abstract and results section.,2,0,0,0,0
