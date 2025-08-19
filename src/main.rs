@@ -25,7 +25,7 @@ struct Args {
     output: String,
 
     /// Number of fields to process in each batch
-    #[arg(long, default_value_t = 50)]
+    #[arg(long, default_value_t = 20)]
     batch: usize,
 }
 
