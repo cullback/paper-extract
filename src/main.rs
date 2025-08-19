@@ -1,13 +1,14 @@
+mod prompt;
 mod schema;
 
 use base64::{Engine as _, engine::general_purpose};
 use csv::Writer;
+use prompt::build_prompt;
 use reqwest::Client;
 use schema::{SchemaField, build_json_schema, read_schema};
 use serde::Deserialize;
 use serde_json::{Value, json};
 use std::env;
-use std::fmt::Write as _;
 use std::fs::{self, File};
 use std::process::exit;
 
@@ -81,8 +82,6 @@ fn pdf_to_base64(path: &str) -> String {
     format!("data:application/pdf;base64,{base64_data}")
 }
 
-const PROMPT_TEMPLATE: &str = include_str!("prompt.md");
-
 async fn call_openrouter(
     pdf_base64: String,
     fields: &[SchemaField],
@@ -91,23 +90,7 @@ async fn call_openrouter(
     let client = Client::new();
 
     let json_schema = build_json_schema(fields);
-
-    let mut fields_list = String::new();
-    for field in fields {
-        writeln!(
-            &mut fields_list,
-            "- **{}**: {}",
-            field.field_name, field.description
-        )
-        .unwrap();
-        if field.infer {
-            fields_list.push_str(
-                "  (This field should be inferred if not explicitly found)\n",
-            );
-        }
-    }
-
-    let prompt = PROMPT_TEMPLATE.replace("{{FIELDS_LIST}}", &fields_list);
+    let prompt = build_prompt(fields);
 
     let request_body = json!({
         "model": "google/gemini-2.5-flash",
