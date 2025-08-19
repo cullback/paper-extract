@@ -48,12 +48,7 @@ type ExtractionResult = HashMap<String, ExtractedField>;
 async fn main() {
     let args = Args::parse();
 
-    println!("Schema: {}", args.schema);
-    println!("PDF: {}", args.pdf);
-    println!("Output: {}", args.output);
-
     let schema = read_schema(&args.schema);
-    println!("Loaded {} fields from schema", schema.len());
 
     // Split schema into batches
     let batches: Vec<Vec<SchemaField>> = schema
@@ -61,17 +56,7 @@ async fn main() {
         .map(<[SchemaField]>::to_vec)
         .collect();
 
-    println!(
-        "Processing {} batches with batch size {}",
-        batches.len(),
-        args.batch
-    );
-
     let pdf_base64 = pdf_to_base64(&args.pdf);
-    println!(
-        "PDF encoded to base64 data URL ({} chars)",
-        pdf_base64.len()
-    );
 
     let api_key = env::var("OPENROUTER_API_KEY")
         .expect("OPENROUTER_API_KEY environment variable not set");
@@ -79,32 +64,9 @@ async fn main() {
     // Process each batch and collect results
     let mut all_results = HashMap::new();
 
-    for (batch_num, batch_fields) in batches.iter().enumerate() {
-        println!(
-            "\n=== Processing batch {}/{} ({} fields) ===",
-            batch_num.saturating_add(1),
-            batches.len(),
-            batch_fields.len()
-        );
-
-        for field in batch_fields {
-            println!(
-                "  - {}: {} ({}) [infer: {}]",
-                field.field_name, field.description, field.kind, field.infer
-            );
-        }
-
-        let json_schema = build_json_schema(batch_fields);
-        println!("Built JSON schema for batch:");
-        println!("{}", serde_json::to_string_pretty(&json_schema).unwrap());
-
+    for batch_fields in &batches {
         let response =
             call_openrouter(pdf_base64.clone(), batch_fields, &api_key).await;
-        println!(
-            "OpenRouter response for batch {}:",
-            batch_num.saturating_add(1)
-        );
-        println!("{}", serde_json::to_string_pretty(&response).unwrap());
 
         // Extract results from response and add to all_results
         let content = &response["choices"][0]["message"]["content"];
@@ -121,11 +83,7 @@ async fn main() {
         all_results.extend(batch_results);
     }
 
-    println!("\n=== All batches processed ===");
-    println!("Total fields extracted: {}", all_results.len());
-
     write_csv(&args.output, &all_results, &schema);
-    println!("\nData written to {}", args.output);
 }
 
 fn pdf_to_base64(path: &str) -> String {
