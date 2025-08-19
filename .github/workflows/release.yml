@@ -1,37 +1,17 @@
-name: Release
+name: Build and Release
 
 on:
   push:
     tags:
-      - 'v*'
+      - '*' # Trigger workflow on tag pushes
 
-env:
-  CARGO_TERM_COLOR: always
+permissions:
+  contents: write
 
 jobs:
-  create-release:
-    name: Create Release
-    runs-on: ubuntu-latest
-    permissions:
-      contents: write
-    outputs:
-      upload_url: ${{ steps.create_release.outputs.upload_url }}
-    steps:
-      - name: Create Release
-        id: create_release
-        uses: softprops/action-gh-release@v1
-        with:
-          tag_name: ${{ github.ref_name }}
-          name: Release ${{ github.ref_name }}
-          draft: false
-          prerelease: false
-          generate_release_notes: true
-
-  build:
+  build-and-release:
     name: Build ${{ matrix.target }}
     runs-on: ${{ matrix.os }}
-    permissions:
-      contents: write
     strategy:
       matrix:
         include:
@@ -57,8 +37,7 @@ jobs:
             asset_name: paper-extract-x86_64-darwin
     
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v4
+    - uses: actions/checkout@v4
     
     - name: Install Rust
       uses: dtolnay/rust-toolchain@stable
@@ -84,8 +63,8 @@ jobs:
         chmod +x artifacts/${{ matrix.asset_name }}
         cd artifacts && tar czf ${{ matrix.asset_name }}.tar.gz ${{ matrix.asset_name }}
     
-    - name: Upload Release Asset
-      uses: softprops/action-gh-release@v1
+    - uses: softprops/action-gh-release@v2
       with:
-        tag_name: ${{ github.ref_name }}
         files: ./artifacts/${{ matrix.asset_name }}.tar.gz
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
