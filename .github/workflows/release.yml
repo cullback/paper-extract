@@ -15,11 +15,6 @@ jobs:
     strategy:
       matrix:
         include:
-          # ARM64 Linux
-          - os: ubuntu-latest
-            target: aarch64-unknown-linux-gnu
-            artifact_name: paper-extract
-            asset_name: paper-extract-aarch64-linux
           # ARM64 macOS
           - os: macos-latest
             target: aarch64-apple-darwin
