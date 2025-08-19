@@ -56,6 +56,8 @@ async fn main() {
         path.to_string_lossy().into_owned()
     });
 
+    println!("Processing {} -> {}", args.pdf, output_path);
+
     let schema = read_schema(&args.schema);
 
     // Split schema into batches
