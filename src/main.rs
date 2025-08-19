@@ -1,39 +1,15 @@
+mod schema;
+
 use base64::{Engine as _, engine::general_purpose};
-use csv::{Reader, Writer};
+use csv::Writer;
 use reqwest::Client;
+use schema::{SchemaField, build_json_schema, read_schema};
 use serde::Deserialize;
 use serde_json::{Value, json};
 use std::env;
-use std::fmt::{self, Display, Write as _};
+use std::fmt::Write as _;
 use std::fs::{self, File};
 use std::process::exit;
-
-#[derive(Debug, Deserialize)]
-#[serde(rename_all = "snake_case")]
-enum SchemaKind {
-    Categorical,
-    Number,
-    Text,
-}
-
-impl Display for SchemaKind {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        match *self {
-            Self::Categorical => write!(f, "Categorical"),
-            Self::Number => write!(f, "Number"),
-            Self::Text => write!(f, "Text"),
-        }
-    }
-}
-
-#[derive(Debug, Deserialize)]
-struct SchemaField {
-    field_name: String,
-    description: String,
-    kind: SchemaKind,
-    /// Whether the field can be inferred
-    infer: bool,
-}
 
 #[derive(Debug, Deserialize)]
 struct ExtractedField {
@@ -99,19 +75,6 @@ async fn main() {
     println!("\nData written to {output_path}");
 }
 
-fn read_schema(path: &str) -> Vec<SchemaField> {
-    let file = File::open(path).expect("Failed to open schema file");
-    let mut reader = Reader::from_reader(file);
-
-    let mut fields = Vec::new();
-    for result in reader.deserialize() {
-        let field: SchemaField = result.expect("Failed to parse schema row");
-        fields.push(field);
-    }
-
-    fields
-}
-
 fn pdf_to_base64(path: &str) -> String {
     let pdf_data = fs::read(path).expect("Failed to read PDF file");
     let base64_data = general_purpose::STANDARD.encode(pdf_data);
@@ -119,61 +82,6 @@ fn pdf_to_base64(path: &str) -> String {
 }
 
 const PROMPT_TEMPLATE: &str = include_str!("prompt.md");
-
-fn build_json_schema(fields: &[SchemaField]) -> Value {
-    let mut properties = serde_json::Map::new();
-    let mut required = Vec::new();
-
-    for field in fields {
-        let field_type = match field.kind {
-            SchemaKind::Number => "number",
-            SchemaKind::Categorical | SchemaKind::Text => "string",
-        };
-
-        let field_schema = json!({
-            "type": "object",
-            "properties": {
-                "value": {
-                    "type": [field_type, "null"],
-                    "description": field.description
-                },
-                "match_type": {
-                    "type": "string",
-                    "enum": ["found", "not_found", "inferred"]
-                },
-                "comment": {
-                    "type": ["string", "null"]
-                },
-                "page": {
-                    "type": "integer"
-                },
-                "xmin": {
-                    "type": "number"
-                },
-                "ymin": {
-                    "type": "number"
-                },
-                "xmax": {
-                    "type": "number"
-                },
-                "ymax": {
-                    "type": "number"
-                }
-            },
-            "required": ["value", "match_type", "comment", "page", "xmin", "ymin", "xmax", "ymax"]
-        });
-
-        properties.insert(field.field_name.clone(), field_schema);
-        required.push(field.field_name.clone());
-    }
-
-    json!({
-        "type": "object",
-        "properties": properties,
-        "required": required,
-        "additionalProperties": false
-    })
-}
 
 async fn call_openrouter(
     pdf_base64: String,
