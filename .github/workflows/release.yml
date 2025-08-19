@@ -18,17 +18,14 @@ jobs:
           # ARM64 macOS
           - os: macos-latest
             target: aarch64-apple-darwin
-            artifact_name: paper-extract
             asset_name: paper-extract-aarch64-darwin
           # x86_64 Linux
           - os: ubuntu-latest
             target: x86_64-unknown-linux-gnu
-            artifact_name: paper-extract
             asset_name: paper-extract-x86_64-linux
           # x86_64 macOS
           - os: macos-latest
             target: x86_64-apple-darwin
-            artifact_name: paper-extract
             asset_name: paper-extract-x86_64-darwin
     
     steps:
@@ -39,22 +36,13 @@ jobs:
       with:
         targets: ${{ matrix.target }}
     
-    - name: Install cross for cross-compilation
-      if: matrix.target == 'aarch64-unknown-linux-gnu'
-      run: cargo install cross --git https://github.com/cross-rs/cross
-    
     - name: Build binary
-      run: |
-        if [ "${{ matrix.target }}" = "aarch64-unknown-linux-gnu" ]; then
-          cross build --release --target ${{ matrix.target }}
-        else
-          cargo build --release --target ${{ matrix.target }}
-        fi
+      run: cargo build --release --target ${{ matrix.target }}
     
     - name: Create release artifact
       run: |
         mkdir -p artifacts
-        cp target/${{ matrix.target }}/release/${{ matrix.artifact_name }} artifacts/${{ matrix.asset_name }}
+        cp target/${{ matrix.target }}/release/paper-extract artifacts/${{ matrix.asset_name }}
         chmod +x artifacts/${{ matrix.asset_name }}
         cd artifacts && tar czf ${{ matrix.asset_name }}.tar.gz ${{ matrix.asset_name }}
     
