@@ -11,6 +11,7 @@ use serde::Deserialize;
 use serde_json::{Value, json};
 use std::env;
 use std::fs::{self, File};
+use std::path::PathBuf;
 
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about = None)]
@@ -21,8 +22,8 @@ struct Args {
     /// Path to the PDF file to extract data from
     pdf: String,
 
-    /// Path to the output CSV file
-    output: String,
+    /// Path to the output CSV file (defaults to PDF filename with .csv extension)
+    output: Option<String>,
 
     /// Number of fields to process in each batch
     #[arg(long, default_value_t = 20)]
@@ -47,6 +48,13 @@ type ExtractionResult = HashMap<String, ExtractedField>;
 #[tokio::main]
 async fn main() {
     let args = Args::parse();
+
+    // Determine output path - use provided path or default to PDF name with .csv extension
+    let output_path = args.output.unwrap_or_else(|| {
+        let mut path = PathBuf::from(&args.pdf);
+        path.set_extension("csv");
+        path.to_string_lossy().into_owned()
+    });
 
     let schema = read_schema(&args.schema);
 
@@ -83,7 +91,7 @@ async fn main() {
         all_results.extend(batch_results);
     }
 
-    write_csv(&args.output, &all_results, &schema);
+    write_csv(&output_path, &all_results, &schema);
 }
 
 fn pdf_to_base64(path: &str) -> String {
