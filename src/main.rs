@@ -4,15 +4,34 @@ use reqwest::Client;
 use serde::Deserialize;
 use serde_json::{Value, json};
 use std::env;
-use std::fmt::Write as _;
+use std::fmt::{self, Display, Write as _};
 use std::fs::{self, File};
 use std::process::exit;
+
+#[derive(Debug, Deserialize)]
+#[serde(rename_all = "snake_case")]
+enum SchemaKind {
+    Categorical,
+    Number,
+    Text,
+}
+
+impl Display for SchemaKind {
+    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
+        match *self {
+            Self::Categorical => write!(f, "Categorical"),
+            Self::Number => write!(f, "Number"),
+            Self::Text => write!(f, "Text"),
+        }
+    }
+}
 
 #[derive(Debug, Deserialize)]
 struct SchemaField {
     field_name: String,
     description: String,
-    kind: String,
+    kind: SchemaKind,
+    /// Whether the field can be inferred
     infer: bool,
 }
 
@@ -20,7 +39,7 @@ struct SchemaField {
 struct ExtractedField {
     value: Option<serde_json::Value>,
     match_type: String,
-    comment: String,
+    comment: Option<String>,
     page: i64,
     xmin: f64,
     ymin: f64,
@@ -106,9 +125,9 @@ fn build_json_schema(fields: &[SchemaField]) -> Value {
     let mut required = Vec::new();
 
     for field in fields {
-        let field_type = match field.kind.as_str() {
-            "number" => "number",
-            _ => "string",
+        let field_type = match field.kind {
+            SchemaKind::Number => "number",
+            SchemaKind::Categorical | SchemaKind::Text => "string",
         };
 
         let field_schema = json!({
@@ -123,7 +142,7 @@ fn build_json_schema(fields: &[SchemaField]) -> Value {
                     "enum": ["found", "not_found", "inferred"]
                 },
                 "comment": {
-                    "type": "string"
+                    "type": ["string", "null"]
                 },
                 "page": {
                     "type": "integer"
@@ -277,7 +296,7 @@ fn write_csv(output_path: &str, response: &Value, fields: &[SchemaField]) {
             field.field_name.clone(),
             value,
             field_data.match_type.clone(),
-            field_data.comment.clone(),
+            field_data.comment.clone().unwrap_or_default(),
             field_data.page.to_string(),
             field_data.xmin.to_string(),
             field_data.ymin.to_string(),
