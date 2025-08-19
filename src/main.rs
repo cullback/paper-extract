@@ -23,6 +23,10 @@ struct Args {
 
     /// Path to the output CSV file
     output: String,
+
+    /// Number of fields to process in each batch
+    #[arg(long, default_value_t = 50)]
+    batch: usize,
 }
 
 #[derive(Debug, Deserialize)]
@@ -50,18 +54,18 @@ async fn main() {
 
     let schema = read_schema(&args.schema);
     println!("Loaded {} fields from schema", schema.len());
-    for field in &schema {
-        println!(
-            "  - {}: {} ({}) [infer: {}]",
-            field.field_name, field.description, field.kind, field.infer
-        );
-    }
 
-    let json_schema = build_json_schema(&schema);
-    println!("Built JSON schema for structured output:");
-    println!("{}", serde_json::to_string_pretty(&json_schema).unwrap());
+    // Split schema into batches
+    let batches: Vec<Vec<SchemaField>> = schema
+        .chunks(args.batch)
+        .map(<[SchemaField]>::to_vec)
+        .collect();
 
-    println!("\nDebug: Full request will be sent to OpenRouter...");
+    println!(
+        "Processing {} batches with batch size {}",
+        batches.len(),
+        args.batch
+    );
 
     let pdf_base64 = pdf_to_base64(&args.pdf);
     println!(
@@ -72,11 +76,55 @@ async fn main() {
     let api_key = env::var("OPENROUTER_API_KEY")
         .expect("OPENROUTER_API_KEY environment variable not set");
 
-    let response = call_openrouter(pdf_base64, &schema, &api_key).await;
-    println!("OpenRouter response:");
-    println!("{}", serde_json::to_string_pretty(&response).unwrap());
+    // Process each batch and collect results
+    let mut all_results = HashMap::new();
 
-    write_csv(&args.output, &response, &schema);
+    for (batch_num, batch_fields) in batches.iter().enumerate() {
+        println!(
+            "\n=== Processing batch {}/{} ({} fields) ===",
+            batch_num.saturating_add(1),
+            batches.len(),
+            batch_fields.len()
+        );
+
+        for field in batch_fields {
+            println!(
+                "  - {}: {} ({}) [infer: {}]",
+                field.field_name, field.description, field.kind, field.infer
+            );
+        }
+
+        let json_schema = build_json_schema(batch_fields);
+        println!("Built JSON schema for batch:");
+        println!("{}", serde_json::to_string_pretty(&json_schema).unwrap());
+
+        let response =
+            call_openrouter(pdf_base64.clone(), batch_fields, &api_key).await;
+        println!(
+            "OpenRouter response for batch {}:",
+            batch_num.saturating_add(1)
+        );
+        println!("{}", serde_json::to_string_pretty(&response).unwrap());
+
+        // Extract results from response and add to all_results
+        let content = &response["choices"][0]["message"]["content"];
+        let content_str = if content.is_string() {
+            content.as_str().unwrap()
+        } else {
+            panic!("Expected string content in response");
+        };
+
+        let batch_results: ExtractionResult = serde_json::from_str(content_str)
+            .expect("Failed to parse extracted data into ExtractionResult");
+
+        // Merge batch results into all_results
+        all_results.extend(batch_results);
+    }
+
+    println!("\n=== All batches processed ===");
+    println!("Total fields extracted: {}", all_results.len());
+
+    write_csv(&args.output, &all_results, &schema);
     println!("\nData written to {}", args.output);
 }
 
@@ -139,7 +187,11 @@ async fn call_openrouter(
     serde_json::from_str(&response_text).expect("Failed to parse JSON response")
 }
 
-fn write_csv(output_path: &str, response: &Value, fields: &[SchemaField]) {
+fn write_csv(
+    output_path: &str,
+    extracted_data: &ExtractionResult,
+    fields: &[SchemaField],
+) {
     let file = File::create(output_path).expect("Failed to create output file");
     let mut writer = Writer::from_writer(file);
 
@@ -157,16 +209,6 @@ fn write_csv(output_path: &str, response: &Value, fields: &[SchemaField]) {
     writer
         .write_record(&headers)
         .expect("Failed to write headers");
-
-    let content = &response["choices"][0]["message"]["content"];
-    let content_str = if content.is_string() {
-        content.as_str().unwrap()
-    } else {
-        panic!("Expected string content in response");
-    };
-
-    let extracted_data: ExtractionResult = serde_json::from_str(content_str)
-        .expect("Failed to parse extracted data into ExtractionResult");
 
     for field in fields {
         let field_data =

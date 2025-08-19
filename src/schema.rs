@@ -4,7 +4,7 @@ use serde_json::{Value, json};
 use std::fmt::{self, Display};
 use std::fs::File;
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, Clone)]
 #[serde(rename_all = "snake_case")]
 pub enum SchemaKind {
     Categorical,
@@ -22,7 +22,7 @@ impl Display for SchemaKind {
     }
 }
 
-#[derive(Debug, Deserialize)]
+#[derive(Debug, Deserialize, Clone)]
 pub struct SchemaField {
     pub field_name: String,
     pub description: String,
