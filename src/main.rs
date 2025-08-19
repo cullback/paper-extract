@@ -2,6 +2,7 @@ mod prompt;
 mod schema;
 
 use base64::{Engine as _, engine::general_purpose};
+use clap::Parser;
 use csv::Writer;
 use prompt::build_prompt;
 use reqwest::Client;
@@ -10,7 +11,19 @@ use serde::Deserialize;
 use serde_json::{Value, json};
 use std::env;
 use std::fs::{self, File};
-use std::process::exit;
+
+#[derive(Parser, Debug)]
+#[command(author, version, about, long_about = None)]
+struct Args {
+    /// Path to the schema CSV file
+    schema: String,
+
+    /// Path to the PDF file to extract data from
+    pdf: String,
+
+    /// Path to the output CSV file
+    output: String,
+}
 
 #[derive(Debug, Deserialize)]
 struct ExtractedField {
@@ -29,22 +42,13 @@ type ExtractionResult = HashMap<String, ExtractedField>;
 
 #[tokio::main]
 async fn main() {
-    let args: Vec<String> = env::args().collect();
+    let args = Args::parse();
 
-    if args.len() != 4 {
-        eprintln!("Usage: {} <pdf_path> <schema_path> <output_path>", args[0]);
-        exit(1);
-    }
+    println!("Schema: {}", args.schema);
+    println!("PDF: {}", args.pdf);
+    println!("Output: {}", args.output);
 
-    let pdf_path = &args[1];
-    let schema_path = &args[2];
-    let output_path = &args[3];
-
-    println!("PDF: {pdf_path}");
-    println!("Schema: {schema_path}");
-    println!("Output: {output_path}");
-
-    let schema = read_schema(schema_path);
+    let schema = read_schema(&args.schema);
     println!("Loaded {} fields from schema", schema.len());
     for field in &schema {
         println!(
@@ -59,7 +63,7 @@ async fn main() {
 
     println!("\nDebug: Full request will be sent to OpenRouter...");
 
-    let pdf_base64 = pdf_to_base64(pdf_path);
+    let pdf_base64 = pdf_to_base64(&args.pdf);
     println!(
         "PDF encoded to base64 data URL ({} chars)",
         pdf_base64.len()
@@ -72,8 +76,8 @@ async fn main() {
     println!("OpenRouter response:");
     println!("{}", serde_json::to_string_pretty(&response).unwrap());
 
-    write_csv(output_path, &response, &schema);
-    println!("\nData written to {output_path}");
+    write_csv(&args.output, &response, &schema);
+    println!("\nData written to {}", args.output);
 }
 
 fn pdf_to_base64(path: &str) -> String {
