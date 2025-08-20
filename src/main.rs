@@ -113,7 +113,7 @@ async fn call_openrouter(
     let prompt = build_prompt(fields);
 
     let request_body = json!({
-        "model": "google/gemini-2.5-flash",
+        "model": "openai/gpt-5-mini",
         "messages": [
             {
                 "role": "user",

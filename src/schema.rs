@@ -84,7 +84,8 @@ pub fn build_json_schema(fields: &[SchemaField]) -> Value {
                     "type": "number"
                 }
             },
-            "required": ["value", "match_type", "comment", "page", "xmin", "ymin", "xmax", "ymax"]
+            "required": ["value", "match_type", "comment", "page", "xmin", "ymin", "xmax", "ymax"],
+            "additionalProperties": false
         });
 
         properties.insert(field.field_name.clone(), field_schema);
