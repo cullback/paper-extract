@@ -43,6 +43,8 @@ struct ExtractedField {
 }
 
 use std::collections::HashMap;
+use std::sync::Arc;
+use tokio::task::JoinHandle;
 type ExtractionResult = HashMap<String, ExtractedField>;
 
 #[tokio::main]
@@ -71,29 +73,69 @@ async fn main() {
     let api_key = env::var("OPENROUTER_API_KEY")
         .expect("OPENROUTER_API_KEY environment variable not set");
 
-    // Process each batch and collect results
-    let mut all_results = HashMap::new();
+    // Process each batch in parallel
+    let pdf_base64_arc = Arc::new(pdf_base64);
+    let api_key_arc = Arc::new(api_key);
 
-    for batch_fields in &batches {
-        let response =
-            call_openrouter(pdf_base64.clone(), batch_fields, &api_key).await;
+    println!("Processing {} batches in parallel...", batches.len());
 
-        // Extract results from response and add to all_results
-        let content = &response["choices"][0]["message"]["content"];
-        let content_str = if content.is_string() {
-            content.as_str().unwrap()
-        } else {
-            panic!("Expected string content in response");
-        };
+    let mut tasks: Vec<JoinHandle<(usize, ExtractionResult)>> = Vec::new();
 
-        let batch_results: ExtractionResult = serde_json::from_str(content_str)
+    for (batch_idx, batch_fields) in batches.into_iter().enumerate() {
+        let pdf_base64_clone = Arc::clone(&pdf_base64_arc);
+        let api_key_clone = Arc::clone(&api_key_arc);
+        let batch_fields_owned = batch_fields.clone();
+
+        let task = tokio::spawn(async move {
+            println!(
+                "Starting batch {} ({} fields)",
+                batch_idx.saturating_add(1),
+                batch_fields_owned.len()
+            );
+
+            let response = call_openrouter(
+                (*pdf_base64_clone).clone(),
+                &batch_fields_owned,
+                &api_key_clone,
+            )
+            .await;
+
+            // Extract results from response
+            let content = &response["choices"][0]["message"]["content"];
+            let content_str = if content.is_string() {
+                content.as_str().unwrap()
+            } else {
+                panic!("Expected string content in response");
+            };
+
+            let batch_results: ExtractionResult = serde_json::from_str(
+                content_str,
+            )
             .expect("Failed to parse extracted data into ExtractionResult");
 
-        // Merge batch results into all_results
+            println!(
+                "Completed batch {} ({} fields extracted)",
+                batch_idx.saturating_add(1),
+                batch_results.len()
+            );
+
+            (batch_idx, batch_results)
+        });
+
+        tasks.push(task);
+    }
+
+    // Wait for all tasks to complete and merge results
+    let mut all_results = HashMap::new();
+    for task in tasks {
+        let (_batch_idx, batch_results) = task.await.expect("Task failed");
         all_results.extend(batch_results);
     }
 
+    println!("All batches completed. Writing results to CSV...");
+
     write_csv(&output_path, &all_results, &schema);
+    println!("Done! Results written to {output_path}");
 }
 
 fn pdf_to_base64(path: &str) -> String {
