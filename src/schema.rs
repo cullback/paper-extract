@@ -67,26 +67,26 @@ impl<'de> Deserialize<'de> for SchemaField {
             )));
         }
 
-        // Parse kind with error reporting
-        let kind = match raw.kind.to_lowercase().as_str() {
+        // Parse kind with error reporting (must be lowercase)
+        let kind = match raw.kind.as_str() {
             "categorical" => SchemaKind::Categorical,
             "number" => SchemaKind::Number,
             "text" => SchemaKind::Text,
             _ => {
                 return Err(DeError::custom(format!(
-                    "Invalid schema kind '{}' for field '{}'. Must be one of: categorical, number, text",
+                    "Invalid schema kind '{}' for field '{}'. Must be one of: categorical, number, text (lowercase only)",
                     raw.kind, raw.field_name
                 )));
             }
         };
 
-        // Parse infer with error reporting
-        let infer = match raw.infer.to_lowercase().as_str() {
+        // Parse infer with error reporting (must be lowercase)
+        let infer = match raw.infer.as_str() {
             "true" => true,
             "false" => false,
             _ => {
                 return Err(DeError::custom(format!(
-                    "Invalid infer value '{}' for field '{}'. Must be true or false",
+                    "Invalid infer value '{}' for field '{}'. Must be true or false (lowercase only)",
                     raw.infer, raw.field_name
                 )));
             }
@@ -279,29 +279,28 @@ mod tests {
         assert!(result.is_err());
         let error_msg = result.unwrap_err();
         assert!(error_msg.contains("Invalid infer value"));
-        assert!(error_msg.contains("Must be true or false"));
+        assert!(error_msg.contains("Must be true or false (lowercase only)"));
     }
 
     #[test]
-    fn test_various_valid_infer_values() {
+    fn test_valid_infer_values() {
         let csv = "field_name,description,kind,infer\n\
                    field1,Desc,text,true\n\
-                   field2,Desc,text,false\n\
-                   field3,Desc,text,TRUE\n\
-                   field4,Desc,text,FALSE";
+                   field2,Desc,text,false";
 
         let result = parse_schema_csv(csv);
         assert!(result.is_ok());
         let fields = result.unwrap();
         assert_eq!(fields[0].infer, true);
         assert_eq!(fields[1].infer, false);
-        assert_eq!(fields[2].infer, true);
-        assert_eq!(fields[3].infer, false);
     }
 
     #[test]
     fn test_invalid_infer_values() {
-        let test_cases = vec!["yes", "no", "1", "0", "y", "n", "on", "off"];
+        let test_cases = vec![
+            "yes", "no", "1", "0", "y", "n", "on", "off", "TRUE", "FALSE",
+            "True", "False",
+        ];
 
         for invalid_value in test_cases {
             let csv = format!(
@@ -316,15 +315,41 @@ mod tests {
             );
             let error_msg = result.unwrap_err();
             assert!(error_msg.contains("Invalid infer value"));
-            assert!(error_msg.contains("Must be true or false"));
+            assert!(
+                error_msg.contains("Must be true or false (lowercase only)")
+            );
         }
     }
 
     #[test]
-    fn test_case_insensitive_kind() {
+    fn test_invalid_uppercase_kind() {
+        let test_cases = vec!["TEXT", "Number", "CATEGORICAL", "Categorical"];
+
+        for invalid_kind in test_cases {
+            let csv = format!(
+                "field_name,description,kind,infer\nfield,Desc,{},true",
+                invalid_kind
+            );
+            let result = parse_schema_csv(&csv);
+            assert!(
+                result.is_err(),
+                "Should reject kind value: {}",
+                invalid_kind
+            );
+            let error_msg = result.unwrap_err();
+            assert!(error_msg.contains("Invalid schema kind"));
+            assert!(
+                error_msg
+                    .contains("categorical, number, text (lowercase only)")
+            );
+        }
+    }
+
+    #[test]
+    fn test_valid_lowercase_kind() {
         let csv = "field_name,description,kind,infer\n\
-                   field1,Desc,TEXT,true\n\
-                   field2,Desc,Number,false\n\
+                   field1,Desc,text,true\n\
+                   field2,Desc,number,false\n\
                    field3,Desc,categorical,true";
 
         let result = parse_schema_csv(csv);
