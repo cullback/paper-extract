@@ -57,3 +57,9 @@ Replace `document.pdf` with the name of your PDF file. The tool will create a CS
 - An OpenRouter API key
 
 The tool will process your PDF and create a new CSV file with the extracted data.
+
+## Process a folder full of pdfs
+
+```shell
+find /path/to/folder -name "*.pdf" -print0 | xargs  ./paper-extract-aarch64-darwin schema.csv
+```
