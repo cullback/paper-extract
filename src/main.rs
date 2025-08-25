@@ -101,17 +101,35 @@ async fn main() {
             .await;
 
             // Extract results from response
-            let content = &response["choices"][0]["message"]["content"];
-            let content_str = if content.is_string() {
-                content.as_str().unwrap()
-            } else {
-                panic!("Expected string content in response");
-            };
+            let content = response
+                .get("choices")
+                .and_then(|choices| choices.get(0))
+                .and_then(|choice| choice.get("message"))
+                .and_then(|message| message.get("content"))
+                .unwrap_or_else(|| {
+                    eprintln!("Unexpected response structure");
+                    eprintln!(
+                        "Full response: {}",
+                        serde_json::to_string_pretty(&response).unwrap_or_else(
+                            |_| "<failed to serialize>".to_owned()
+                        )
+                    );
+                    panic!("Failed to extract content from API response");
+                });
 
-            let batch_results: ExtractionResult = serde_json::from_str(
-                content_str,
-            )
-            .expect("Failed to parse extracted data into ExtractionResult");
+            let content_str = content.as_str().unwrap_or_else(|| {
+                eprintln!("Content is not a string: {content}");
+                panic!("Expected string content in response");
+            });
+
+            let batch_results: ExtractionResult =
+                serde_json::from_str(content_str).unwrap_or_else(|e| {
+                    eprintln!("Failed to parse extracted data: {e}");
+                    eprintln!("Raw content: {content_str}");
+                    panic!(
+                        "Failed to parse extracted data into ExtractionResult"
+                    );
+                });
 
             println!(
                 "Completed batch {} ({} fields extracted)",
@@ -193,8 +211,38 @@ async fn call_openrouter(
         .await
         .expect("Failed to send request to OpenRouter");
 
+    let status = response.status();
     let response_text = response.text().await.expect("Failed to read response");
-    serde_json::from_str(&response_text).expect("Failed to parse JSON response")
+
+    // Parse the response JSON
+    let response_json: Value = serde_json::from_str(&response_text)
+        .unwrap_or_else(|e| {
+            eprintln!("Failed to parse JSON response: {e}");
+            eprintln!("Raw response: {response_text}");
+            panic!("Invalid JSON response from API");
+        });
+
+    // Check if the response indicates an error
+    if !status.is_success() || response_json.get("error").is_some() {
+        eprintln!("API request failed with status: {status}");
+        eprintln!(
+            "Full response: {}",
+            serde_json::to_string_pretty(&response_json)
+                .unwrap_or(response_text)
+        );
+
+        if let Some(error) = response_json.get("error") {
+            if let Some(message) = error.get("message") {
+                panic!(
+                    "API error: {}",
+                    message.as_str().unwrap_or("Unknown error")
+                );
+            }
+        }
+        panic!("API request failed with status: {status}");
+    }
+
+    response_json
 }
 
 fn write_csv(
