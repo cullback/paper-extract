@@ -36,7 +36,7 @@ impl<'de> Deserialize<'de> for SchemaField {
         let raw = RawSchemaField::deserialize(deserializer)?;
 
         // Validate field_name
-        if raw.field_name.len() > 16 {
+        if raw.field_name.len() > 40 {
             return Err(DeError::custom(format!(
                 "Field name '{}' exceeds 16 characters (length: {})",
                 raw.field_name,
@@ -52,7 +52,7 @@ impl<'de> Deserialize<'de> for SchemaField {
         }
 
         // Validate description
-        if raw.description.len() > 100 {
+        if raw.description.len() > 120 {
             return Err(DeError::custom(format!(
                 "Description for field '{}' exceeds 100 characters (length: {})",
                 raw.field_name,
