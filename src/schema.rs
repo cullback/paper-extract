@@ -3,7 +3,6 @@ use serde::Deserialize;
 use serde::de::Error as DeError;
 use serde_json::{Value, json};
 use std::collections::HashSet;
-use std::fmt::{self, Display};
 use std::fs;
 
 #[derive(Debug, Clone)]
@@ -11,33 +10,6 @@ pub enum SchemaKind {
     Categorical,
     Number,
     Text,
-}
-
-impl<'de> Deserialize<'de> for SchemaKind {
-    fn deserialize<D>(deserializer: D) -> Result<Self, D::Error>
-    where
-        D: serde::Deserializer<'de>,
-    {
-        let s = String::deserialize(deserializer)?;
-        match s.to_lowercase().as_str() {
-            "categorical" => Ok(Self::Categorical),
-            "number" => Ok(Self::Number),
-            "text" => Ok(Self::Text),
-            _ => Err(DeError::custom(format!(
-                "Invalid schema kind '{s}'. Must be one of: categorical, number, text"
-            ))),
-        }
-    }
-}
-
-impl Display for SchemaKind {
-    fn fmt(&self, f: &mut fmt::Formatter) -> fmt::Result {
-        match *self {
-            Self::Categorical => write!(f, "Categorical"),
-            Self::Number => write!(f, "Number"),
-            Self::Text => write!(f, "Text"),
-        }
-    }
 }
 
 #[derive(Debug, Clone)]
@@ -110,11 +82,11 @@ impl<'de> Deserialize<'de> for SchemaField {
 
         // Parse infer with error reporting
         let infer = match raw.infer.to_lowercase().as_str() {
-            "true" | "yes" | "1" => true,
-            "false" | "no" | "0" => false,
+            "true" => true,
+            "false" => false,
             _ => {
                 return Err(DeError::custom(format!(
-                    "Invalid infer value '{}' for field '{}'. Must be true/false, yes/no, or 1/0",
+                    "Invalid infer value '{}' for field '{}'. Must be true or false",
                     raw.infer, raw.field_name
                 )));
             }
@@ -307,7 +279,7 @@ mod tests {
         assert!(result.is_err());
         let error_msg = result.unwrap_err();
         assert!(error_msg.contains("Invalid infer value"));
-        assert!(error_msg.contains("true/false, yes/no, or 1/0"));
+        assert!(error_msg.contains("Must be true or false"));
     }
 
     #[test]
@@ -315,10 +287,8 @@ mod tests {
         let csv = "field_name,description,kind,infer\n\
                    field1,Desc,text,true\n\
                    field2,Desc,text,false\n\
-                   field3,Desc,text,yes\n\
-                   field4,Desc,text,no\n\
-                   field5,Desc,text,1\n\
-                   field6,Desc,text,0";
+                   field3,Desc,text,TRUE\n\
+                   field4,Desc,text,FALSE";
 
         let result = parse_schema_csv(csv);
         assert!(result.is_ok());
@@ -327,8 +297,27 @@ mod tests {
         assert_eq!(fields[1].infer, false);
         assert_eq!(fields[2].infer, true);
         assert_eq!(fields[3].infer, false);
-        assert_eq!(fields[4].infer, true);
-        assert_eq!(fields[5].infer, false);
+    }
+
+    #[test]
+    fn test_invalid_infer_values() {
+        let test_cases = vec!["yes", "no", "1", "0", "y", "n", "on", "off"];
+
+        for invalid_value in test_cases {
+            let csv = format!(
+                "field_name,description,kind,infer\nfield,Desc,text,{}",
+                invalid_value
+            );
+            let result = parse_schema_csv(&csv);
+            assert!(
+                result.is_err(),
+                "Should reject infer value: {}",
+                invalid_value
+            );
+            let error_msg = result.unwrap_err();
+            assert!(error_msg.contains("Invalid infer value"));
+            assert!(error_msg.contains("Must be true or false"));
+        }
     }
 
     #[test]
@@ -336,7 +325,7 @@ mod tests {
         let csv = "field_name,description,kind,infer\n\
                    field1,Desc,TEXT,true\n\
                    field2,Desc,Number,false\n\
-                   field3,Desc,categorical,yes";
+                   field3,Desc,categorical,true";
 
         let result = parse_schema_csv(csv);
         assert!(result.is_ok());

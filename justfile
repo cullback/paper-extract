@@ -5,6 +5,9 @@ check:
     cargo clippy; or set failed 1
     exit $failed
 
+test:
+    cargo test
+
 format:
     cargo fmt
 
